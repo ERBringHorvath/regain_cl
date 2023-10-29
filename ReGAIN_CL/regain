@@ -1,0 +1,137 @@
+#!/usr/bin/env python3
+import argparse
+import logging
+import sys
+from datetime import datetime
+
+def main():
+    parser = argparse.ArgumentParser(prog='regain')
+    subparsers = parser.add_subparsers(dest='command')
+
+    pcoa_parser = subparsers.add_parser('PCoA')
+    pcoa_parser.add_argument('-i', '--input', required=True, help='Input file in CSV format')
+    pcoa_parser.add_argument('-m', '--method', default='jaccard', help='jaccard, manhattan, bray, cosine, or hamming, default: jaccard')
+    pcoa_parser.add_argument('-c', '--centers', type=int, default=1, help='How many clusters to group into (max 10)')
+    pcoa_parser.add_argument('-o', '--output', required=True, help='Output file and extension (example: .pdf, .png, .jpeg)')
+
+    pca_parser = subparsers.add_parser('PCA')
+    pca_parser.add_argument('-i', '--input', required=True, help='Input file in CSV format')
+    pca_parser.add_argument('-c', '--centers', type=int, default=1, help='How many clusters to group into (max 10)')
+    pca_parser.add_argument('-o', '--output', required=True, help='Output file and extension (example: .pdf, .png, .jpeg)')
+
+    mds_parser = subparsers.add_parser('MDS')
+    mds_parser.add_argument('-i', '--input', required=True, help='Input file in CSV format')
+    mds_parser.add_argument('-m', '--method', default='jaccard', help='jaccard, manhattan, bray, cosine, or hamming, default: jaccard')
+    mds_parser.add_argument('-c', '--centers', type=int, default=1, help='How many clusters to group into (max 10)')
+    mds_parser.add_argument('-o', '--output', required=True, help='Output file and extension (example: .pdf, .png, .jpeg)')
+    
+    amr_parser = subparsers.add_parser('AMR')
+    amr_parser.add_argument('-d', '--directory', required=True, help='The directory containing your FASTA files')
+    amr_parser.add_argument('-O', '--organism', help='Specify an organism for the AMRfinder search')
+    amr_parser.add_argument('-T', '--threads', type=int, help='Dedicated threads')
+    amr_parser.add_argument('-o', '--output-dir', help='Output directory path')
+    
+    bn_parser = subparsers.add_parser('BN')
+    bn_parser.add_argument('-i', '--input', required=True, help='Input file in CSV format')
+    bn_parser.add_argument('-o', '--output_boot', required=True, help='Output file name for Network')
+    bn_parser.add_argument('-T', '--threads', type=int, help='Dedicated threads')
+    bn_parser.add_argument('-n', '--number_of_bootstraps', type=int, help='Bootstrap number (ideally 300-500)')
+    bn_parser.add_argument('-D', '--database_output', required=True, help='Output file name for Bayesian Network database')
+    
+    matrix_parser = subparsers.add_parser('matrix')
+    matrix_parser.add_argument('-d', '--directory', required=True, help='Input directory to CSV files to search')
+    matrix_parser.add_argument('-f', '--search-strings-output', required=True, help='Output metadata file for search results and network query and visualization')
+    matrix_parser.add_argument('--simplify-gene-names', action='store_true', help='Replace special characters in gene names when invoked')
+    matrix_parser.add_argument('-s', '--search-output', required=True, help='Combined CSV file with all gene data')
+    matrix_parser.add_argument('--min', type=int, default=5, required=True, help='Minimum required gene occurrences')
+    matrix_parser.add_argument('--max', type=int, help='Maximum allowed gene occurrences')
+    matrix_parser.add_argument('-o', '--output', required=True, help='Output of final presence/absence matrix')
+    matrix_parser.add_argument('--gene-type', required=True, choices=['resistance', 'virulence', 'all'], help='specify gene type: resistance, virulence, or all')
+    
+    query_parser = subparsers.add_parser('query')
+    query_parser.add_argument('-i', '--input', help='Import .RData file', required=True)
+    query_parser.add_argument('-M', '--meta_data', help="Input metadata file with genes to query", required=True)
+    query_parser.add_argument('-T', '--threads', type=int, help='Dedicated threads')
+    query_parser.add_argument('-o', '--output', help='Output file', required=True)
+
+    queryFit_parser = subparsers.add_parser('queryFit')
+    queryFit_parser.add_argument('-i', '--input', required = True, help = 'import RDS file')
+    queryFit_parser.add_argument('-p', '--presence_absence_matrix', required=True, help = 'import presence/absence matrix CSV file')
+    queryFit_parser.add_argument('-M', '--meta_data', required = True, help = 'import metadata file with genes to query')
+    queryFit_parser.add_argument('-o', '--output', required = True, help = 'Output file')
+    
+    split_fasta_parser = subparsers.add_parser('split_fasta')
+    split_fasta_parser.add_argument('-i', '--input', required=True, help="Input multi-FASTA file")
+    split_fasta_parser.add_argument('-o', '--output_dir', required=True, help="Output directory for split FASTA files")
+
+    split_genbank_parser = subparsers.add_parser('split_genbank')
+    split_genbank_parser.add_argument('-i', '--input', help='Input multi-genbank file')
+    split_genbank_parser.add_argument('-o', '--output_dir', help='Output directory for split genbank files')
+
+    ### New addition/delete if bugged
+    rules_parser = subparsers.add_parser('rules')
+    rules_parser.add_argument('-i', '--input', required=True, help='Input file')
+    rules_parser.add_argument('-o', '--output_file', required=True, help='Output file')
+
+    ###Network construction
+    network_parser = subparsers.add_parser('network')
+    network_parser.add_argument('-p', '--presence_absence_matrix', required = True, help = 'Input presence/absence matrix')
+    network_parser.add_argument('-b', '--boot_input', required = True, help = 'Input Bayesian Network RDS file')
+    network_parser.add_argument('-M', '--meta_data', required = True, help = 'Input metadata CSV file')
+    network_parser.add_argument('-o', '--network_output', required = True, help = 'Output file name')
+
+    probs_parser = subparsers.add_parser('probs')
+
+    args = parser.parse_args()
+
+    # Set up logging for our program
+    logging.basicConfig(filename=f'{args.command}_log.txt', level=logging.INFO)
+    logging.info(f'Program started at {datetime.now()}')
+    logging.info(f'User command: {" ".join(sys.argv)}')
+
+    # Set up logging for rpy2 to suppress warning messages
+    logging.getLogger('rpy2').setLevel(logging.INFO)
+
+    if args.command == 'PCoA':
+        import PCoA
+        PCoA.run(args)
+    elif args.command == 'PCA':
+        import PCA
+        PCA.run(args)
+    elif args.command == 'MDS':
+        import MDS
+        MDS.run(args)
+    elif args.command == 'AMR':
+        import AMR
+        AMR.run(args)
+    elif args.command == 'BN':
+        import BN
+        BN.run(args)
+    elif args.command == 'matrix':
+        import matrix
+        matrix.run(args)
+    elif args.command == 'query':
+        import query
+        query.run(args)
+    elif args.command == 'queryFit':
+        import queryFit
+        queryFit.run(args) 
+    elif args.command == 'split_fasta':
+        import split_fasta
+        split_fasta.run(args)
+    elif args.command == 'split_genbank':
+        import split_genbank
+        split_genbank.run(args)
+    elif args.command == 'rules':
+        import rules
+        rules.run(args)
+    elif args.command == 'network':
+        import network
+        network.run(args)
+    else:
+        parser.print_help()
+    
+    logging.info(f'Program ended at {datetime.now()}')
+
+if __name__ == "__main__":
+    main()
