@@ -1,6 +1,6 @@
 # **Installation and User guide for ReGAIN** #
 
-Prerequisites
+>Prerequisites
 
 Ensure that you have the following prerequisites installed on your system:
 Python (version 3.8 or higher)
