@@ -9,7 +9,7 @@ NCBI AMRfinderPlus
 
 **Suggested to install all prerequisites within a Conda environment**
 
-Download [miniforge](https://github.com/conda-forge/miniforge){:target="_blank"}
+Download [miniforge]<a href="https://github.com/conda-forge/miniforge/" target="_blank">example</a>
 
 Create Conda environment and nstall NCBI AMRfinderPlus
 
