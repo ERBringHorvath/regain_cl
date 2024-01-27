@@ -11,7 +11,9 @@ Suggested to install all prerequisites within a Conda environment
 
 Install NCBI AMRfinderPlus
 
-`$ conda install -y -c conda-forge -c bioconda ncbi-amrfinderplus`
+`$ conda create -y -c conda-forge -c bioconda regain ncbi-amrfinderplus`
+Activate the environement
+`$ source activate amrfinder`
 
 Download ARMfinderPlus Database
 
