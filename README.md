@@ -82,13 +82,13 @@ Module 1.1 `regain AMR`
 
 **Module 1.1 example usage:**
 
-`###Organism-specific`
+Organism specific:
 
 `regain AMR -d path/to/FASTA/files -O Pseudomonas_aruginosa -T 8 -o path/to/output/directory`
 
-`###Organism non-specific`
+Organism non-specific:
 
-`regain AMR -d path/do/FASTA/files -T 8 -o path/to/output/directory`
+`regain AMR -d path/to/FASTA/files -T 8 -o path/to/output/directory`
 
 # **Dataset creation** #
 
@@ -138,11 +138,11 @@ Module 2 `regain bnL` or `regain bnS`
 
 `bnL`, Bayesian network structure learning analysis for 100 genes or greater
 
-`###For less than 100 genes`
+For less than 100 genes:
 
 `regain bnS regain bnS -i matrix.csv -M metadata.csv -o bootstrapped_network -T 8 -n 3 -r 3`
                                             
-`###For 100 or more genes`
+For 100 or more genes:
 
 `regain bnL -i matrix.csv -M metadata.csv -o bootstrapped_network -T 8 -n 3 -r 3`
 
