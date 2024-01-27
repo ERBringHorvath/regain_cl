@@ -1,15 +1,15 @@
 # **Installation and User guide for ReGAIN** #
 
->Prerequisites
+**Prerequisites**
 
 Ensure that you have the following prerequisites installed on your system:
 Python (version 3.8 or higher)
 R (version 4 or higher)
-AMRfinderPlus
+NCBI AMRfinderPlus
 
-Suggested to install all prerequisites within a Conda environment
+**Suggested to install all prerequisites within a Conda environment**
 
-Install NCBI AMRfinderPlus
+Create Conda environment and nstall NCBI AMRfinderPlus
 
 `$ conda create -y -c conda-forge -c bioconda regain ncbi-amrfinderplus`
 
