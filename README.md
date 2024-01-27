@@ -12,6 +12,7 @@ NCBI AMRfinderPlus
 
 [Install R](https://www.r-project.org/)
 
+
 **It is suggested that ReGAIN and all prerequisites are installed within a Conda environment**
 
 Download [miniforge](https://github.com/conda-forge/miniforge/)
