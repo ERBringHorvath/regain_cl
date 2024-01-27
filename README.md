@@ -1,4 +1,4 @@
-### **Installation and User guide for ReGAIN** ###
+# **Installation and User guide for ReGAIN** #
 
 **Prerequisites**
 
@@ -7,11 +7,11 @@ Python (version 3.8 or higher)
 R (version 4 or higher)
 NCBI AMRfinderPlus
 
-**Suggested to install all prerequisites within a Conda environment**
+# **Suggested to install all prerequisites within a Conda environment** #
 
 Download [miniforge](https://github.com/conda-forge/miniforge/)
 
-Create Conda environment and nstall NCBI AMRfinderPlus
+Create Conda environment and install [NCBI AMRfinderPlus](https://github.com/ncbi/amr/wiki/Install-with-bioconda)
 
 `conda create -y -c conda-forge -c bioconda regain ncbi-amrfinderplus`
 
@@ -45,9 +45,11 @@ use `-h`, `--help`, to bring up the help menu
 
 `regain --help`
  
-Programs and example usage
+# **Programs and example usage** #
 
-Resistance and virulence gene identification (Module 1, `regain AMR`):
+# **Resistance and virulence gene identification** #
+
+Module 1, `regain AMR`
 
 `-d`, `--directory`, path to directory containing FASTA files to analyze
 
@@ -57,7 +59,8 @@ Resistance and virulence gene identification (Module 1, `regain AMR`):
 
 `-o`, `--output-dir`, output directory to store AMRfinder results
 
-Currently supported organisms and how they should be input,
+**Currently supported organisms and how they should be called:**
+
 Acinetobacter_baumannii, 
 Burkholderia_cepacia
 Burkholderia_pseudomallei
@@ -77,11 +80,13 @@ Streptococcus_pneumoniae
 Streptococcus_pyogenes
 Vibrio_cholerae
 
-Module 1 example usage:
+# **Module 1 example usage:** #
                                        
 `regain AMR -d path/to/directory -O Pseudomonas_aruginosa -T 8 -o output_directory`
 
-Dataset creation (Module 2, `regain matrix`)
+# **Dataset creation** #
+
+Module 2, `regain matrix`
                                        
 `-d`, `--directory`, path to AMRfinder results in CSV format
 
@@ -99,13 +104,15 @@ Dataset creation (Module 2, `regain matrix`)
 
 `-o`, `--output`, output of final cleaned up presence/absence matrix
 
-Module 2 example usage:
+# **Module 2 example usage** #
                                             
 `regain matrix -d path/to/directory -s search_strings --simplify-gene-names --gene-type resistance -f matrix.csv --min 5 --max 500 -o matrix_final.csv`
 
-NOTE: all results are saved in the 'ReGAIN_Dataset', folder which will be generated within the directory defined by --directory
+**NOTE: all results are saved in the 'ReGAIN_Dataset', folder which will be generated within the directory defined by** --directory
 
-Bayesian network structure learning (Module 3, `regain bnL` or `regain bnS`)
+# **Bayesian network structure learning** # 
+
+Module 3, `regain bnL` or `regain bnS`
                                             
 `-i`, `--input`, input file in CSV format
 
@@ -119,7 +126,7 @@ Bayesian network structure learning (Module 3, `regain bnL` or `regain bnS`)
 
 `-r`, `--number-of-resamples`, how many data resamples you want to use (suggested 100)
 
-Bayesian Network example usage:
+# **Bayesian Network example usage:** #
 
 `bnS`, Bayesian network structure learning analysis for less than 100 genes
 
@@ -131,12 +138,16 @@ regain bnS regain bnS -i matrix.csv -M metadata.csv -o boot -T 8 -n 3 -r 3`
 `###For 100 or more genes     
 regain bnL -i matrix.csv -M metadata.csv -o boot -T 8 -n 3 -r 3`
 
-For multidimensional analyses (Optional Module 4, `regain MVA`)
+# **Multidimensional analyses** # 
 
-Currently supported measures of distance: `manhattan`, `euclidean`, `canberra`, `clark`, `bray`, 
-                                          `kulczynski`, `jaccard`, `gower`, `altGower`, `morisita`, 
-                                          `horn`, `mountford`, `raup`, `binomial`, `chao`, `cao`, `mahalanobis`, 
-                                          `chisq`, `chord`, `hellinger`
+Optional Module 4, `regain MVA`
+
+**Currently supported measures of distance:**
+
+`manhattan`, `euclidean`, `canberra`, `clark`, `bray`, 
+`kulczynski`, `jaccard`, `gower`, `altGower`, `morisita`, 
+`horn`, `mountford`, `raup`, `binomial`, `chao`, `cao`, `mahalanobis`, 
+`chisq`, `chord`, `hellinger`
                                            
 `-i`, `--input`, input file in CSV format
 
@@ -146,11 +157,11 @@ Currently supported measures of distance: `manhattan`, `euclidean`, `canberra`, 
 
 `-C`, `--confidence`, confidence interval for ellipses
                                        
-Module 4 example usage
+# **Module 4 example usage:** #
 
 `$ regain MVA -i matrix.csv -m jaccard -c 3 -C 0.75`
 
-NOTE: the MVA analysis with generate 2 files: a PNG and a PDF of the plot   
+**NOTE: the MVA analysis with generate 2 files: a PNG and a PDF of the plot**   
 <<<<<<< HEAD
 
 =======
