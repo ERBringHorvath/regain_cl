@@ -106,11 +106,14 @@ Module 1.2 `regain matrix`
 
 `--max`, maximum allowed occurrence of genes (should be less than number of genomes, as genes occurring across all genomes can significantly slow down Bayesian analysis.
 
-`--simplify-gene-names`, gets rid of special characters in gene names, i.e., aph(3’’)-Ib becomes aph3pp_Ib. This is required for the Bayesian network structure learning module
+`--simplify-gene-names`, replaces special characters in gene names, i.e., aph(3’’)-Ib becomes aph3pp_Ib. This is required for the Bayesian network structure learning module
 
-`-o`, `--output`, output of final cleaned up presence/absence matrix
+`-o`, `--output`, output of final curated presence/absence matrix
 
 **Module 1.2 example usage**
+
+**NOTE: Bayesian network structure learning requires all variables to exist in at least two states. For ReGAIN, these two states are 'present' and 'absent'. Ubiquitously occurring genes will break the analysis. 
+Best practice is for *N* genomes, `--max` should MINIMALLY be defined as *N* - 1. Keep in mind that removing very low and very high abundance genes can reduce noise in the network.
                                             
 `regain matrix -d path/to/AMRfinder/results -s search_strings --simplify-gene-names --gene-type resistance -f matrix.csv --min 5 --max 500 -o matrix_final.csv`
 
