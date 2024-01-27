@@ -11,14 +11,15 @@ Suggested to install all prerequisites within a Conda environment
 
 Install NCBI AMRfinderPlus
 
-$ conda install -y -c conda-forge -c bioconda ncbi-amrfinderplus
+`$ conda install -y -c conda-forge -c bioconda ncbi-amrfinderplus`
 
 Download ARMfinderPlus Database
 
-$ amrfinder -u
+`$ amrfinder -u`
 
 Install Python dependencies
-$ pip install tqdm pandas
+
+`$ pip install tqdm pandas`
 
 Download ReGAIN to preferred directory
 
