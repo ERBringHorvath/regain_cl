@@ -27,7 +27,7 @@ Install Python dependencies
 
 Download ReGAIN to preferred directory
 
-`git clone https://github.com/ERBringHorvath/ReGAIN_CL.git`
+`git clone https://github.com/ERBringHorvath/regain_cl.git`
 
 Add ReGAIN to your PATH
 
