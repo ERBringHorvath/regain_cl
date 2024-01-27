@@ -1,4 +1,4 @@
-Installation guide for ReGAIN
+**Installation guide for ReGAIN**
 
 Prerequisites
 
