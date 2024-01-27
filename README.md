@@ -3,8 +3,11 @@
 **Prerequisites**
 
 Ensure that you have the following prerequisites installed on your system:
+
 Python (version 3.8 or higher)
+
 R (version 4 or higher)
+
 NCBI AMRfinderPlus
 
 [Install R](https://www.r-project.org/)
