@@ -46,9 +46,13 @@ use `-h`, `--help`, to bring up the help menu
 Programs and example usage
 
 Resistance and virulence gene identification (Module 1, `regain AMR`):
+
 `-d`, `--directory`, path to directory containing FASTA files to analyze
-`-O`, `--organism`, specify what organism (if any) you want to analyze
+
+`-O`, `--organism`, specify what organism (if any) you want to analyze (optional flag)
+
 `-T`, `--threads`, number of cores to dedicate
+
 `-o`, `--output-dir`, output directory to store AMRfinder results
 
 Currently supported organisms and how they should be input,
@@ -78,12 +82,19 @@ Module 1 example usage:
 Dataset creation (Module 2, `regain matrix`)
                                        
 `-d`, `--directory`, path to AMRfinder results in CSV format
+
 `-s`, `--search-strings-output`, name of output file where gene names will be stored
+
 `--gene-type`, searches for `resistance` or `virulence` genes
+
 `-f`, `--search-output`, presence/absence matrix with all genes in your dataset
+
 `--min`, minimum desired occurrence of genes across genomes
+
 `--max`, maximum allowed occurrence of genes (should be less than number of genomes, as genes occurring across all genomes can significantly slow down Bayesian analysis.
+
 `--simplify-gene-names`, gets rid of special characters in gene names, i.e., aph(3’’)-Ib becomes aph3pp_Ib. This is required for the Bayesian network structure learning module
+
 `-o`, `--output`, output of final cleaned up presence/absence matrix
 
 Module 2 example usage:
@@ -95,14 +106,21 @@ NOTE: all results are saved in the 'ReGAIN_Dataset', folder which will be genera
 Bayesian network structure learning (Module 3, `regain bnL` or `regain bnS`)
                                             
 `-i`, `--input`, input file in CSV format
+
 `-M`, `--metadata`, file containing gene names and descriptions
+
 `-o`, `--output_boot`, output bootstrap file
+
 `-T`, `--threads`, number of cores to dedicate
+
 `-n`, `--number_of_boostraps`, how many bootstraps to run (suggested 300-500)
+
 `-r`, `--number-of-resamples`, how many data resamples you want to use (suggested 100)
 
-Bayesian Network example usage:                                         
+Bayesian Network example usage:
+
 `bnS`, Bayesian network structure learning analysis for less than 100 genes
+
 `bnL`, Bayesian network structure learning analysis for 100 genes or greater
 
 `###For less than 100 genes
@@ -112,14 +130,18 @@ Bayesian Network example usage:
 % regain bnL -i matrix.csv -M metadata.csv -o boot -T 8 -n 3 -r 3`
 
 For multidimensional analyses (Optional Module 4, `regain MVA`)
+
 Currently supported measures of distance: `manhattan`, `euclidean`, `canberra`, `clark`, `bray`, 
                                           `kulczynski`, `jaccard`, `gower`, `altGower`, `morisita`, 
                                           `horn`, `mountford`, `raup`, `binomial`, `chao`, `cao`, `mahalanobis`, 
                                           `chisq`, `chord`, `hellinger`
                                            
 `-i`, `--input`, input file in CSV format
+
 `-m`, `--method`, measure of distance method
+
 `-c`, `--centers`, how many centers you want for your multidimensional analysis (1-10)
+
 `-C`, `--confidence`, confidence interval for ellipses
                                        
 Module 4 example usage
