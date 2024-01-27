@@ -7,17 +7,25 @@ Python (version 3.8 or higher)
 R (version 4 or higher)
 NCBI AMRfinderPlus
 
+[Install R](https://www.r-project.org/)
+
 **It is suggested that ReGAIN and all prerequisites are installed within a Conda environment**
 
 Download [miniforge](https://github.com/conda-forge/miniforge/)
 
 Create Conda environment and install [NCBI AMRfinderPlus](https://github.com/ncbi/amr/wiki/Install-with-bioconda)
 
-`conda create -y -c conda-forge -c bioconda regain ncbi-amrfinderplus`
+`conda create -n regain python=3.10`
 
-Activate the environement
+`conda activate regain`
 
-`source activate regain`
+Install AMRfinderPlus
+
+`conda install -y -c conda-forge -c bioconda ncbi-amrfinderplus`
+
+Check installation
+
+`amrfinder -h`
 
 Download ARMfinderPlus Database
 
