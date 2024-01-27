@@ -11,19 +11,19 @@ NCBI AMRfinderPlus
 
 Create Conda environment and nstall NCBI AMRfinderPlus
 
-`$ conda create -y -c conda-forge -c bioconda regain ncbi-amrfinderplus`
+`conda create -y -c conda-forge -c bioconda regain ncbi-amrfinderplus`
 
 Activate the environement
 
-`$ source activate amrfinder`
+`source activate amrfinder`
 
 Download ARMfinderPlus Database
 
-`$ amrfinder -u`
+`amrfinder -u`
 
 Install Python dependencies
 
-`$ pip install tqdm pandas`
+`pip install tqdm pandas`
 
 Download ReGAIN to preferred directory
 
@@ -33,15 +33,15 @@ Add ReGAIN to your PATH
 
 For Unix/Linux/macOS:
 
-`$ export PATH="$PATH:/path/to/your-program-directory"`
+`export PATH="$PATH:/path/to/your-program-directory"`
 
 Verify installation:
 
-`$ regain --version`
+`regain --version`
 
 use `-h`, `--help`, to bring up the help menu
 
-`$ regain --help`
+`regain --help`
  
 Programs and example usage
 
@@ -77,7 +77,7 @@ Vibrio_cholerae
 
 Module 1 example usage:
                                        
-`$ regain AMR -d path/to/directory -O Pseudomonas_aruginosa -T 8 -o output_directory`
+`regain AMR -d path/to/directory -O Pseudomonas_aruginosa -T 8 -o output_directory`
 
 Dataset creation (Module 2, `regain matrix`)
                                        
@@ -99,7 +99,7 @@ Dataset creation (Module 2, `regain matrix`)
 
 Module 2 example usage:
                                             
-`$ regain matrix -d path/to/directory -s search_strings --simplify-gene-names --gene-type resistance -f matrix.csv --min 5 --max 500 -o matrix_final.csv`
+`regain matrix -d path/to/directory -s search_strings --simplify-gene-names --gene-type resistance -f matrix.csv --min 5 --max 500 -o matrix_final.csv`
 
 NOTE: all results are saved in the 'ReGAIN_Dataset', folder which will be generated within the directory defined by --directory
 
@@ -124,10 +124,10 @@ Bayesian Network example usage:
 `bnL`, Bayesian network structure learning analysis for 100 genes or greater
 
 `###For less than 100 genes
-% regain bnS regain bnS -i matrix.csv -M metadata.csv -o boot -T 8 -n 3 -r 3`
+regain bnS regain bnS -i matrix.csv -M metadata.csv -o boot -T 8 -n 3 -r 3`
                                             
 `###For 100 or more genes     
-% regain bnL -i matrix.csv -M metadata.csv -o boot -T 8 -n 3 -r 3`
+regain bnL -i matrix.csv -M metadata.csv -o boot -T 8 -n 3 -r 3`
 
 For multidimensional analyses (Optional Module 4, `regain MVA`)
 
