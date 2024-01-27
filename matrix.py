@@ -25,13 +25,6 @@ def run(args):
     args.output = os.path.join(output_directory, os.path.basename(args.output))
     args.search_strings_output = os.path.join(output_directory, os.path.basename(args.search_strings_output))
 
-    # # Modify the -s flag to go to the directory specified by the -d flag
-    # args.search_strings_output = os.path.join(args.directory, args.search_strings_output)
-    
-    # # Modify the -f and -o flags to go to the current working directory
-    # args.search_output = os.path.join(os.getcwd(), args.search_output)
-    # args.output = os.path.join(os.getcwd(), args.output)
-
     # Step 1: Combine CSV files
     filename = os.path.basename(args.search_output).split('.')[0]
 
