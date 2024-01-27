@@ -49,7 +49,7 @@ use `-h`, `--help`, to bring up the help menu
 
 # **Resistance and virulence gene identification** #
 
-Module 1.1, `regain AMR`
+Module 1.1 `regain AMR`
 
 `-d`, `--directory`, path to directory containing FASTA files to analyze
 
@@ -80,13 +80,13 @@ Streptococcus_pneumoniae
 Streptococcus_pyogenes
 Vibrio_cholerae
 
-# **Module 1.1 example usage:** #
+**Module 1.1 example usage:**
                                        
 `regain AMR -d path/to/directory -O Pseudomonas_aruginosa -T 8 -o output_directory`
 
 # **Dataset creation** #
 
-Module 1.2, `regain matrix`
+Module 1.2 `regain matrix`
                                        
 `-d`, `--directory`, path to AMRfinder results in CSV format
 
@@ -104,7 +104,7 @@ Module 1.2, `regain matrix`
 
 `-o`, `--output`, output of final cleaned up presence/absence matrix
 
-# **Module 1.2 example usage** #
+**Module 1.2 example usage**
                                             
 `regain matrix -d path/to/directory -s search_strings --simplify-gene-names --gene-type resistance -f matrix.csv --min 5 --max 500 -o matrix_final.csv`
 
@@ -112,7 +112,7 @@ Module 1.2, `regain matrix`
 
 # **Bayesian network structure learning** # 
 
-Module 2, `regain bnL` or `regain bnS`
+Module 2 `regain bnL` or `regain bnS`
                                             
 `-i`, `--input`, input file in CSV format
 
@@ -126,7 +126,7 @@ Module 2, `regain bnL` or `regain bnS`
 
 `-r`, `--number-of-resamples`, how many data resamples you want to use (suggested 100)
 
-# **Module 2 example usage:** #
+**Module 2 example usage:**
 
 `bnS`, Bayesian network structure learning analysis for less than 100 genes
 
@@ -140,7 +140,7 @@ regain bnL -i matrix.csv -M metadata.csv -o boot -T 8 -n 3 -r 3`
 
 # **Multidimensional analyses** # 
 
-Optional Module 3, `regain MVA`
+Optional Module 3 `regain MVA`
 
 **Currently supported measures of distance:**
 
@@ -157,7 +157,7 @@ Optional Module 3, `regain MVA`
 
 `-C`, `--confidence`, confidence interval for ellipses
                                        
-# **Module 3 example usage:** #
+**Module 3 example usage:**
 
 `$ regain MVA -i matrix.csv -m jaccard -c 3 -C 0.75`
 
