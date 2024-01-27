@@ -61,24 +61,24 @@ Module 1.1 `regain AMR`
 
 **Currently supported organisms and how they should be called:**
 
-Acinetobacter_baumannii, 
-Burkholderia_cepacia
-Burkholderia_pseudomallei
-Campylobacter
-Clostridioides_difficile
-Enterococcus_faecalis
-Enterococcus_faecium
-Escherichia
-Klebsiella
-Neisseria
-Pseudomonas_aeruginosa
-Salmonella
-Staphylococcus_aureus
-Staphylococcus_pseudintermedius
-Streptococcus_agalactiae
-Streptococcus_pneumoniae
-Streptococcus_pyogenes
-Vibrio_cholerae
+`Acinetobacter_baumannii`
+`Burkholderia_cepacia`
+`Burkholderia_pseudomallei`
+`Campylobacter`
+`Clostridioides_difficile`
+`Enterococcus_faecalis`
+`Enterococcus_faecium`
+`Escherichia`
+`Klebsiella`
+`Neisseria`
+`Pseudomonas_aeruginosa`
+`Salmonella`
+`Staphylococcus_aureus`
+`Staphylococcus_pseudintermedius`
+`Streptococcus_agalactiae`
+`Streptococcus_pneumoniae`
+`Streptococcus_pyogenes`
+`Vibrio_cholerae`
 
 **Module 1.1 example usage:**
                                        
