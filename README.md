@@ -1,6 +1,6 @@
-# **Installation and User guide for ReGAIN** #
+# **ReGAIN Installation and User guide** #
 
-
+<img src="https://github.com/ERBringHorvath/regain_cl/assets/97261650/931d3268-89c3-41e0-99f6-23530fe2f8ac" alt="image" width="363" height="418"/>
 
 **Prerequisites**
 
@@ -186,7 +186,14 @@ Optional Module 3 `regain MVA`
 
 `$ regain MVA -i matrix.csv -m jaccard -c 3 -C 0.75`
 
-**NOTE: the MVA analysis with generate 2 files: a PNG and a PDF of the plot**   
+**NOTE: the MVA analysis with generate 2 files: a PNG and a PDF of the plot**
+
+# **Formatting External Data** #
+
+Bayesian network analysis requires both data matrix and metadata files. MVA analysis requires only a data matrix file.
+
+<img src="https://github.com/ERBringHorvath/regain_cl/assets/97261650/906de456-8368-4872-97c1-df3c9978d535" alt="image">
+
 <<<<<<< HEAD
 
 =======
