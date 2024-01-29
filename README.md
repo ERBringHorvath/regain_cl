@@ -64,9 +64,9 @@ use `-h`, `--help`, to bring up the help menu
 `regain --help`
 
 _________________________________________________________________________________
- 
-# **Programs and Example Usage** #
 
+ # **Programs and Example Usage** #
+ 
 _________________________________________________________________________________
 
 # **Resistance and Virulence Gene Identification** #
