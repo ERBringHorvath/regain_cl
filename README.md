@@ -1,6 +1,6 @@
 # **Installation and User guide for ReGAIN** #
 
-<img src="https://github.com/ERBringHorvath/regain_cl/assets/97261650/a722e776-db1e-48c8-8059-a1a35f756c7c" width="400" height="500>
+
 
 **Prerequisites**
 
