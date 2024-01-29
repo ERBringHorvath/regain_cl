@@ -16,6 +16,8 @@ NCBI AMRfinderPlus
 
 [Install R](https://www.r-project.org/)
 
+_________________________________________________________________________________
+
 
 **It is suggested that ReGAIN and all prerequisites are installed within a Conda environment**
 
@@ -60,10 +62,14 @@ Verify installation:
 use `-h`, `--help`, to bring up the help menu
 
 `regain --help`
- 
-# **Programs and example usage** #
 
-# **Resistance and virulence gene identification** #
+_________________________________________________________________________________
+ 
+# **Programs and Example Usage** #
+
+_________________________________________________________________________________
+
+# **Resistance and Virulence Gene Identification** #
 
 Module 1.1 `regain AMR`
 
@@ -106,7 +112,9 @@ Organism non-specific:
 
 `regain AMR -d path/to/FASTA/files -T 8 -o path/to/output/directory`
 
-# **Dataset creation** #
+_________________________________________________________________________________
+
+# **Dataset Creation** #
 
 Module 1.2 `regain matrix`
                                        
@@ -126,6 +134,7 @@ Module 1.2 `regain matrix`
 
 `-o`, `--output`, output of final curated presence/absence matrix
 
+
 **Module 1.2 example usage**
 
 NOTE: Bayesian network structure learning requires all variables to exist in at least two states. For ReGAIN, these two states are 'present' and 'absent'. Ubiquitously occurring genes will break the analysis. 
@@ -135,7 +144,9 @@ Best practice is for *N* genomes, `--max` should MINIMALLY be defined as *N* - 1
 
 **NOTE: all results are saved in the 'ReGAIN_Dataset' folder, which will be generated within the directory defined by** `--directory`
 
-# **Bayesian network structure learning** # 
+_________________________________________________________________________________
+
+# **Bayesian Network Structure Learning** # 
 
 Module 2 `regain bnL` or `regain bnS`
                                             
@@ -165,7 +176,9 @@ For 100 or more genes:
 
 `regain bnL -i matrix.csv -M metadata.csv -o bootstrapped_network -T 8 -n 3 -r 3`
 
-# **Multidimensional analyses** # 
+_________________________________________________________________________________
+
+# **Multidimensional Analyses** # 
 
 Optional Module 3 `regain MVA`
 
@@ -190,13 +203,13 @@ Optional Module 3 `regain MVA`
 
 **NOTE: the MVA analysis with generate 2 files: a PNG and a PDF of the plot**
 
+_________________________________________________________________________________
+
 # **Formatting External Data** #
 
 Bayesian network analysis requires both data matrix and metadata files. MVA analysis requires only a data matrix file.
 
 <img src="https://github.com/ERBringHorvath/regain_cl/assets/97261650/906de456-8368-4872-97c1-df3c9978d535" alt="image">
 
-<<<<<<< HEAD
+_________________________________________________________________________________
 
-=======
->>>>>>> cbaf8d32823a95a254078172d8000eab83b875c8
