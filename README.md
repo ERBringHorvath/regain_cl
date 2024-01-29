@@ -65,9 +65,7 @@ use `-h`, `--help`, to bring up the help menu
 
 _________________________________________________________________________________
 
- # **Programs and Example Usage** #
- 
-_________________________________________________________________________________
+# **Programs and Example Usage** #
 
 # **Resistance and Virulence Gene Identification** #
 
