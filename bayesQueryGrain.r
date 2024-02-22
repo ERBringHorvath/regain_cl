@@ -169,15 +169,43 @@ calculate_ratio <- function(stats, gene1, gene2) {
   }
 }
 
+##Run BDPS
 result <- stats %>%
   distinct(Gene_1, Gene_2) %>%
   rowwise() %>%
-  mutate(Score = calculate_ratio(stats, Gene_1, Gene_2)) %>%
-  select(Gene_A = Gene_1, Gene_B = Gene_2, Score)
+  mutate(BDPS = calculate_ratio(stats, Gene_1, Gene_2)) %>%
+  select(Gene_A = Gene_1, Gene_B = Gene_2, BDPS)
 
-result <- result[!is.na(result$Score),]
+result <- result[!is.na(result$BDPS),]
 
-write.csv(result, "BDPS.csv", row.names = FALSE)
+##Fold Change
+calculate_fold_change <- function(stats, gene1, gene2) {
+  fc1 <- stats %>%
+    filter(Gene_1 == gene1, Gene_2 == gene2) %>%
+    pull(Relative_Risk_Mean)
+  fc2 <- stats %>%
+    filter(Gene_1 == gene2, Gene_2 == gene1) %>%
+    pull(Relative_Risk_Mean)
+  
+  if (length(fc1) > 0 && length(fc2) > 0) {
+    return((fc1 / fc2) / 2) ###Fold Change
+  } else {
+    return(NA)
+  }
+}
+
+fold_change_results <- stats %>%
+  distinct(Gene_1, Gene_2) %>%
+  rowwise() %>%
+  mutate(Fold_Change = calculate_fold_change(stats, Gene_1, Gene_2)) %>%
+  select(Gene_A = Gene_1, Gene_B = Gene_2, Fold_Change)
+
+fold_change_results <- fold_change_results[!is.na(fold_change_results$Fold_Change),]
+
+post_hoc <- full_join(result, fold_change_results, by = c("Gene_A", "Gene_B"))
+post_hoc <- na.omit(post_hoc)
+
+write.csv(post_hoc, "post_hoc_analysis.csv", row.names = FALSE)
 
 ##Stop cluster
 parallel::stopCluster(cl)
