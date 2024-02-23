@@ -185,7 +185,7 @@ Optional Module 3 `regain MVA`
                                        
 **Module 3 example usage:**
 
-`$ regain MVA -i matrix.csv -m jaccard -c 3 -C 0.75`
+`regain MVA -i matrix.csv -m jaccard -c 3 -C 0.75`
 
 **NOTE: the MVA analysis with generate 2 files: a PNG and a PDF of the plot**
 
