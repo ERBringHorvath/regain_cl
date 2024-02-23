@@ -51,8 +51,7 @@ Install Python dependencies
 
 Add ReGAIN to your PATH
 
-For Unix/Linux, add this line to the end of `.bash_profile` <br />
-For macOS, add this line to the end of `.zshrc`
+Add this line to the end of `.bash_profile` (Linux/Unix) or `.zshrc` (macOS):
 
 `export PATH="$PATH:/path/to/regain/bin"`
 
