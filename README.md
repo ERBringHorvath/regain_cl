@@ -70,7 +70,7 @@ use `-h`, `--help`, to bring up the help menu
 
 _________________________________________________________________________________
 
-# **Programs and Example Usage** #
+# <ins>**Programs and Example Usage**</ins> #
 
 ## **Resistance and Virulence Gene Identification** #
 
@@ -138,7 +138,7 @@ Best practice is for *N* genomes, `--max` should MINIMALLY be defined as *N* - 1
 
 _________________________________________________________________________________
 
-## **Bayesian Network Structure Learning** # 
+## **Bayesian Network Structure Learning** 
 
 Module 2 `regain bnL` or `regain bnS`
                                             
@@ -164,7 +164,7 @@ For 100 or more genes:
 
 _________________________________________________________________________________
 
-## **Multidimensional Analyses** # 
+## **Multidimensional Analyses**
 
 Optional Module 3 `regain MVA`
 
@@ -188,7 +188,7 @@ Optional Module 3 `regain MVA`
 
 _________________________________________________________________________________
 
-## **Formatting External Data** #
+## **Formatting External Data**
 
 Bayesian network analysis requires both data matrix and metadata files. MVA analysis requires only a data matrix file.
 
