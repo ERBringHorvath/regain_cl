@@ -72,7 +72,7 @@ ________________________________________________________________________________
 
 # **Programs and Example Usage** #
 
-# **Resistance and Virulence Gene Identification** #
+## **Resistance and Virulence Gene Identification** #
 
 Module 1.1 `regain AMR`
 
@@ -117,7 +117,7 @@ Organism non-specific:
 
 _________________________________________________________________________________
 
-# **Dataset Creation** #
+## **Dataset Creation** #
 
 Module 1.2 `regain matrix`
                                        
@@ -141,7 +141,7 @@ Best practice is for *N* genomes, `--max` should MINIMALLY be defined as *N* - 1
 
 _________________________________________________________________________________
 
-# **Bayesian Network Structure Learning** # 
+## **Bayesian Network Structure Learning** # 
 
 Module 2 `regain bnL` or `regain bnS`
                                             
@@ -167,7 +167,7 @@ For 100 or more genes:
 
 _________________________________________________________________________________
 
-# **Multidimensional Analyses** # 
+## **Multidimensional Analyses** # 
 
 Optional Module 3 `regain MVA`
 
@@ -191,7 +191,7 @@ Optional Module 3 `regain MVA`
 
 _________________________________________________________________________________
 
-# **Formatting External Data** #
+## **Formatting External Data** #
 
 Bayesian network analysis requires both data matrix and metadata files. MVA analysis requires only a data matrix file.
 
