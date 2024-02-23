@@ -124,7 +124,7 @@ Module 1.2 `regain matrix`
 `-f`, `--search-output`, presence/absence matrix with all genes in your dataset <br />
 `--min`, minimum desired occurrence of genes across genomes <br />
 `--max`, maximum allowed occurrence of genes (should be less than number of genomes, as genes occurring across all genomes can significantly slow down Bayesian analysis <br />
-`--simplify-gene-names`, replaces special characters in gene names, i.e., aph(3’’)-Ib becomes aph3pp_Ib. This is **required** for the Bayesian network structure learning module <br />
+`--simplify-gene-names`, replaces special characters in gene names, i.e., aph(3’’)-Ib becomes aph3pp_Ib. This is <ins>**required**</ins> for the Bayesian network structure learning module <br />
 `-o`, `--output`, output of final curated presence/absence matrix
 
 **Module 1.2 example usage**
