@@ -116,7 +116,7 @@ ________________________________________________________________________________
 
 ## **Dataset Creation** 
 
-NOTE: variable names <ins>**cannot**</ins> contain special characters–but don't worry, we've taken care of that! <br />
+**NOTE**: variable names <ins>**cannot**</ins> contain special characters–but don't worry, we've taken care of that! <br />
 To replace special characters during dataset creation, include `--simplify-gene-names` in the command!
 
 Module 1.2 `regain matrix`
