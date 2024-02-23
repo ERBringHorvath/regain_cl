@@ -55,7 +55,7 @@ Add this line to the end of `.bash_profile` (Linux/Unix) or `.zshrc` (macOS):
 
 `export PATH="$PATH:/path/to/regain/bin"`
 
-Replace `/path/to/regain/bin` with the actual path to the directory containing executable. <br />
+Replace `/path/to/regain/bin` with the actual path to the directory containing the executable. <br />
 Whatever the initial directory, this path should end with `/regain/bin`
 
 Save the file and restart your terminal or run `source ~/.bash_profile` or `source ~/.zshrc`
