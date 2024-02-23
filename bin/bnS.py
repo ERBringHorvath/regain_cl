@@ -1,3 +1,26 @@
+"""
+    Performs Bayesian network structure learning on a given dataset to identify relationships between genes.
+    
+    This function applies either a small-scale (bnS) or large-scale (bnL) approach based on the dataset size,
+    utilizing bootstrapping and resampling techniques to validate the network's structure. It's designed
+    to handle genomic data, specifically presence/absence matrices, facilitating the understanding of complex
+    gene interactions and resistance mechanisms.
+    
+    Parameters:
+        input_file (str): CSV file containing the presence/absence matrix.
+        metadata_file (str): File containing gene names and descriptions.
+        output_bootstrap (str): Output file for bootstrap results.
+        threads (int): Number of CPU cores to use.
+        number_of_bootstraps (int): How many bootstrap iterations to perform.
+        number_of_resamples (int): Number of resamples for bootstrapping.
+        
+    Note:
+        This module is a part of ReGAIN, which is under US provisional patent 63/526,656.
+    
+    Returns:
+        None
+"""
+
 import argparse
 import subprocess
 import os
