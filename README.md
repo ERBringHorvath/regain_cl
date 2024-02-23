@@ -47,7 +47,7 @@ Install Python dependencies
 
 Download ReGAIN to preferred directory
 
-`git clone https://github.com/ERBringHorvath/regain_cl.git`
+`git clone https://github.com/ERBringHorvath/multiBLAST`
 
 Add ReGAIN to your PATH
 
