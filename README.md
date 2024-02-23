@@ -41,19 +41,25 @@ Download ARMfinderPlus Database
 
 `amrfinder -u`
 
-Install Python dependencies
-
-`pip install tqdm pandas`
-
 Download ReGAIN to preferred directory
 
 `git clone https://github.com/ERBringHorvath/multiBLAST`
 
+Install Python dependencies
+
+`pip install -r requirements.txt` or `pip3 install -r requirements.txt`
+
 Add ReGAIN to your PATH
 
-For Unix/Linux/macOS:
+For Unix/Linux, add this line to the end of `.bash_profile` <br />
+For macOS, add this line to the end of `.zshrc`
 
-`export PATH="$PATH:/path/to/your-program-directory"`
+`export PATH="$PATH:/path/to/regain/bin"`
+
+Replace `/path/to/regain/bin` with the actual path to the directory containing executable. <br />
+Whatever the initial directory, this path should end with `/regain/bin`
+
+Save the file and restart your terminal or run `source ~/.bash_profile` or `source ~/.zshrc`
 
 Verify installation:
 
@@ -116,22 +122,14 @@ ________________________________________________________________________________
 
 Module 1.2 `regain matrix`
                                        
-`-d`, `--directory`, path to AMRfinder results in CSV format
-
-`-s`, `--search-strings-output`, name of output file where gene names will be stored
-
-`--gene-type`, searches for `resistance` or `virulence` genes
-
-`-f`, `--search-output`, presence/absence matrix with all genes in your dataset
-
-`--min`, minimum desired occurrence of genes across genomes
-
-`--max`, maximum allowed occurrence of genes (should be less than number of genomes, as genes occurring across all genomes can significantly slow down Bayesian analysis.
-
-`--simplify-gene-names`, replaces special characters in gene names, i.e., aph(3’’)-Ib becomes aph3pp_Ib. This is required for the Bayesian network structure learning module
-
+`-d`, `--directory`, path to AMRfinder results in CSV format <br />
+`-s`, `--search-strings-output`, name of output file where gene names will be stored <br />
+`--gene-type`, searches for `resistance` or `virulence` genes <br />
+`-f`, `--search-output`, presence/absence matrix with all genes in your dataset <br />
+`--min`, minimum desired occurrence of genes across genomes <br />
+`--max`, maximum allowed occurrence of genes (should be less than number of genomes, as genes occurring across all genomes can significantly slow down Bayesian analysis <br />
+`--simplify-gene-names`, replaces special characters in gene names, i.e., aph(3’’)-Ib becomes aph3pp_Ib. This is required for the Bayesian network structure learning module <br />
 `-o`, `--output`, output of final curated presence/absence matrix
-
 
 **Module 1.2 example usage**
 
@@ -148,22 +146,16 @@ ________________________________________________________________________________
 
 Module 2 `regain bnL` or `regain bnS`
                                             
-`-i`, `--input`, input file in CSV format
-
-`-M`, `--metadata`, file containing gene names and descriptions
-
-`-o`, `--output_boot`, output bootstrap file
-
-`-T`, `--threads`, number of cores to dedicate
-
-`-n`, `--number_of_boostraps`, how many bootstraps to run (suggested 300-500)
-
-`-r`, `--number-of-resamples`, how many data resamples you want to use (suggested 100)
+`-i`, `--input`, input file in CSV format <br />
+`-M`, `--metadata`, file containing gene names and descriptions <br />
+`-o`, `--output_boot`, output bootstrap file <br />
+`-T`, `--threads`, number of cores to dedicate <br />
+`-n`, `--number_of_boostraps`, how many bootstraps to run (suggested 300-500) <br />
+`-r`, `--number-of-resamples`, how many data resamples you want to use (suggested 100) <br />
 
 **Module 2 example usage:**
 
-`bnS`, Bayesian network structure learning analysis for less than 100 genes
-
+`bnS`, Bayesian network structure learning analysis for less than 100 genes <br />
 `bnL`, Bayesian network structure learning analysis for 100 genes or greater
 
 For less than 100 genes:
@@ -182,18 +174,15 @@ Optional Module 3 `regain MVA`
 
 **Currently supported measures of distance:**
 
-`manhattan`, `euclidean`, `canberra`, `clark`, `bray`, 
-`kulczynski`, `jaccard`, `gower`, `altGower`, `morisita`, 
-`horn`, `mountford`, `raup`, `binomial`, `chao`, `cao`, `mahalanobis`, 
+`manhattan`, `euclidean`, `canberra`, `clark`, `bray`, <br />
+`kulczynski`, `jaccard`, `gower`, `altGower`, `morisita`, <br />
+`horn`, `mountford`, `raup`, `binomial`, `chao`, `cao`, `mahalanobis`, <br />
 `chisq`, `chord`, `hellinger`
                                            
-`-i`, `--input`, input file in CSV format
-
-`-m`, `--method`, measure of distance method
-
-`-c`, `--centers`, how many centers you want for your multidimensional analysis (1-10)
-
-`-C`, `--confidence`, confidence interval for ellipses
+`-i`, `--input`, input file in CSV format <br />
+`-m`, `--method`, measure of distance method <br />
+`-c`, `--centers`, how many centers you want for your multidimensional analysis (1-10) <br />
+`-C`, `--confidence`, confidence interval for ellipses <br />
                                        
 **Module 3 example usage:**
 
