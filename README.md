@@ -138,7 +138,7 @@ Best practice is for *N* genomes, `--max` should MINIMALLY be defined as *N* - 1
 `regain matrix -d path/to/AMRfinder/results -s search_strings --simplify-gene-names --gene-type resistance -f matrix.csv` <br />
 `--min 5 --max 500 -o matrix_final.csv`
 
-**NOTE: all results are saved in the 'ReGAIN_Dataset' folder, which will be generated within the directory defined by** `--directory`
+**NOTE: all results are saved in the 'ReGAIN_Dataset' folder, which will be generated within the directory defined by** `-d`
 
 _________________________________________________________________________________
 
