@@ -1,3 +1,25 @@
+"""
+    Conducts Multidimensional Variance Analysis (MVA) on genomic data to explore gene distribution and relationships.
+    
+    This optional module supports various measures of distance to analyze the genomic data, providing insights
+    into gene clustering and interaction. The analysis outputs visual representations in PNG and PDF formats,
+    aiding in the interpretation of complex genomic data structures.
+    
+    Parameters:
+        input_file (str): CSV format input file containing genomic data.
+        method (str): Measure of distance method to use for analysis.
+        centers (int): Number of centers for the multidimensional analysis.
+        confidence (float): Confidence interval for ellipses in the plot.
+        
+    Note:
+        ReGAIN's MVA module offers advanced capabilities for genomic analysis under the framework's
+        US provisional patent 63/526,656. The selection of distance measures and analytical approach are
+        integral to understanding genomic data through multidimensional analysis.
+    
+    Returns:
+        None
+"""
+
 import argparse, subprocess, os
 
 def run_mva():
