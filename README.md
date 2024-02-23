@@ -76,33 +76,30 @@ ________________________________________________________________________________
 
 Module 1.1 `regain AMR`
 
-`-d`, `--directory`, path to directory containing FASTA files to analyze
-
-`-O`, `--organism`, specify what organism (if any) you want to analyze (optional flag)
-
-`-T`, `--threads`, number of cores to dedicate
-
+`-d`, `--directory`, path to directory containing FASTA files to analyze <br />
+`-O`, `--organism`, specify what organism (if any) you want to analyze (optional flag) <br />
+`-T`, `--threads`, number of cores to dedicate <br />
 `-o`, `--output-dir`, output directory to store AMRfinder results
 
 **Currently supported organisms and how they should be called:**
 
-`Acinetobacter_baumannii`
-`Burkholderia_cepacia`
-`Burkholderia_pseudomallei`
-`Campylobacter`
-`Clostridioides_difficile`
-`Enterococcus_faecalis`
-`Enterococcus_faecium`
-`Escherichia`
-`Klebsiella`
-`Neisseria`
-`Pseudomonas_aeruginosa`
-`Salmonella`
-`Staphylococcus_aureus`
-`Staphylococcus_pseudintermedius`
-`Streptococcus_agalactiae`
-`Streptococcus_pneumoniae`
-`Streptococcus_pyogenes`
+`Acinetobacter_baumannii` <br />
+`Burkholderia_cepacia` <br />
+`Burkholderia_pseudomallei` <br />
+`Campylobacter` <br />
+`Clostridioides_difficile` <br />
+`Enterococcus_faecalis` <br />
+`Enterococcus_faecium` <br />
+`Escherichia` <br />
+`Klebsiella` <br />
+`Neisseria` <br />
+`Pseudomonas_aeruginosa` <br />
+`Salmonella` <br />
+`Staphylococcus_aureus` <br />
+`Staphylococcus_pseudintermedius` <br />
+`Streptococcus_agalactiae` <br />
+`Streptococcus_pneumoniae` <br />
+`Streptococcus_pyogenes` <br />
 `Vibrio_cholerae`
 
 **Module 1.1 example usage:**
