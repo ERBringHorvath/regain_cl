@@ -1,4 +1,4 @@
-# <ins>**ReGAIN Installation and User guide**</ins> #
+# <ins>**ReGAIN Installation and User guide**</ins> 
 
 <img src="https://github.com/ERBringHorvath/regain_cl/assets/97261650/931d3268-89c3-41e0-99f6-23530fe2f8ac" alt="image" width="363" height="418"/>
 
@@ -70,9 +70,9 @@ use `-h`, `--help`, to bring up the help menu
 
 _________________________________________________________________________________
 
-# <ins>**Programs and Example Usage**</ins> #
+# <ins>**Programs and Example Usage**</ins> 
 
-## **Resistance and Virulence Gene Identification** #
+## **Resistance and Virulence Gene Identification** 
 
 Module 1.1 `regain AMR`
 
@@ -114,7 +114,10 @@ Organism non-specific:
 
 _________________________________________________________________________________
 
-## **Dataset Creation** #
+## **Dataset Creation** 
+
+NOTE: variable names <ins>**cannot**</ins> contain special characters–but don't worry, we've taken care of that! <br />
+To replace special characters during dataset creation, include `--simplify-gene-names` in the command!
 
 Module 1.2 `regain matrix`
                                        
