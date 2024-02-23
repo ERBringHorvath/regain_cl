@@ -7,9 +7,9 @@
     multi-threading to expedite analysis.
 
     This module utilizes the NCBI AMRfinderPlus Software:
-    Feldgarden M, Brover V, Gonzalez-Escalona N, et al. 
-    AMRFinderPlus and the Reference Gene Catalog facilitate examination of the genomic links among antimicrobial resistance, stress response, and virulence. 
-    Sci Rep. 2021;11(1):12728. Published 2021 Jun 16. doi:10.1038/s41598-021-91456-0
+        Feldgarden M, Brover V, Gonzalez-Escalona N, et al. 
+        AMRFinderPlus and the Reference Gene Catalog facilitate examination of the genomic links among antimicrobial resistance, stress response, and virulence. 
+        Sci Rep. 2021;11(1):12728. Published 2021 Jun 16. doi:10.1038/s41598-021-91456-0
     
     Parameters:
         directory (str): Path to the directory containing FASTA files for analysis.
