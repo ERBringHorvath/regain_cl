@@ -1,3 +1,28 @@
+"""
+    Generates a presence/absence matrix for resistance or virulence genes from AMRfinder results.
+    
+    This module processes CSV files containing AMRfinderPlus results to create a curated matrix
+    indicating the presence or absence of specific genes across a dataset. It allows filtering based
+    on gene occurrence and simplifies gene names to facilitate further analysis, such as Bayesian
+    network structure learning.
+    
+    Parameters:
+        amr_results_dir (str): Directory containing AMRfinder results in CSV format.
+        gene_type (str): Type of genes to search for ('resistance' or 'virulence').
+        search_output (str): Name of the output file where gene names will be stored.
+        min_occurrence (int): Minimum desired occurrence of genes across genomes.
+        max_occurrence (int): Maximum allowed occurrence of genes.
+        simplify_gene_names (bool, optional): Flag to simplify gene names for analysis compatibility. Default is False.
+        output_file (str): Path to save the final presence/absence matrix.
+        
+    Note:
+        The creation of this dataset is a critical step in preparing data for advanced genomic analysis
+        under the ReGAIN framework, which is under US provisional patent 63/526,656.
+    
+    Returns:
+        None
+"""
+
 def simplify_gene_names(gene_name):
     gene_name = gene_name.replace("'", "p")  # Replace single quote with p
     gene_name = gene_name.replace('"', "pp")  # Replace double quote with p
