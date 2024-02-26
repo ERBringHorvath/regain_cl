@@ -2,7 +2,7 @@
 
 **Probability tables were created using ReGAIN's Bayesian network structure learning module**
 
-## Table S1 A-M. 
+## <ins>Table S1 A-M </ins>
 
 Conditional probability, relative risk, and bidirectional probability score values for: <br />
 A. Escherichia coli <br />
