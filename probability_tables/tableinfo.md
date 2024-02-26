@@ -4,7 +4,8 @@
 
 ## <ins>**Table S1 A-M**</ins>
 
-Conditional probability, relative risk, and bidirectional probability score values for: <br />
+**Conditional probability, relative risk, and bidirectional probability score values for:**
+
 A. Escherichia coli <br />
 B. Acinetobacter baumannii <br />
 C. Enterobacter cloacae <br />
