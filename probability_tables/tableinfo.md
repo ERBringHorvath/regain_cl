@@ -24,7 +24,7 @@ M. Clostridium difficile <br />
 
 ## <ins>**Table S2**</ins>
 
-Occurrence of each resistance gene identified in each of 13 bacterial genomic populations.
+Occurrence of resistance genes identified in each of 13 bacterial genomic populations.
 
 ## <ins>**Table S7**</ins>
 
