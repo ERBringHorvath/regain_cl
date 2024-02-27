@@ -1,5 +1,5 @@
 ﻿#All gene occurrence,,,,,,,,,,,,,,,,,,,,,,,,,
-"##Special characters have been removed from gene names quotes become 'p', hyphen, period, and backslash becomes '_', parenthesis are removed, i.e., aph(3'')-Ib becomes aph3pp_Ib",,,,,,,,,,,,,,,,,,,,,,,,,
+"##Special characters have been removed from gene names. Quotes become 'p', hyphen, period, and backslash becomes '_', parenthesis are removed, i.e., aph(3'')-Ib becomes aph3pp_Ib",,,,,,,,,,,,,,,,,,,,,,,,,
 Escherichia_coli,Occurrence,Klebsiella_pneumoniae,Occurrence,Pseudomonas_aeruginosa,Occurrence,Staphylococcus_aureus,Occurrence,Salmonella_enterica,Occurrence,Acinetobacter_baumannii,Occurrence,Enterobacter_cloacae,Occurrence,Enterococcus_faecalis,Occurrence,Enterococcus_faecium,Occurrence,Neisseria_gonorrhoeae,Occurrence,Streptococcus_pneumoniae,Occurrence,S_enterica_typhi,Occurrence,Clostridium_difficile,Occurrence
 emrD,485,emrD,2439,mexE,819,gyrA_E88K,97,arsR,376,blaADC_74,12,blaACT,510,tetM,668,gyrA_S83Y,128,mtrR_A39T,40,pbp2x,130,catA1,31,gyrB_S366A,39
 uhpT_E350Q,386,oqxB19,506,mexX,815,gyrA_S84L,598,golS,2102,amvA,646,fosA,538,ant6_Ia,276,tetM,179,rpsJ_V57M,116,pbp1a,74,dfrA7,31,dfrF,7
