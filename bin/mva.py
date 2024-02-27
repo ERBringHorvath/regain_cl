@@ -20,7 +20,9 @@
         None
 """
 
-import argparse, subprocess, os
+import argparse
+import subprocess
+import os
 
 def run_mva():
     parser = argparse.ArgumentParser(description="Perform Multivariate Analysis")
