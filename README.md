@@ -124,9 +124,9 @@ Module 1.2 `regain matrix`
 `-d`, `--directory`, path to AMRfinder results in CSV format <br />
 `-s`, `--search-strings-output`, name of output file where gene names will be stored <br />
 `--gene-type`, searches for `resistance` or `virulence` genes <br />
-`-f`, `--search-output`, presence/absence matrix with all genes in your dataset <br />
+`-f`, `--search-output`, presence/absence matrix of all genes in your dataset, regardless of `--min`/`--max` values <br />
 `--min`, minimum desired occurrence of genes across genomes <br />
-`--max`, maximum allowed occurrence of genes (should be less than number of genomes, as genes occurring across all genomes can significantly slow down Bayesian analysis <br />
+`--max`, maximum allowed occurrence of genes (should be less than number of genomes, see NOTE below) <br />
 `--simplify-gene-names`, replaces special characters in gene names, i.e., aph(3’’)-Ib becomes aph3pp_Ib. This is <ins>**required**</ins> for the Bayesian network structure learning module <br />
 `-o`, `--output`, output of final curated presence/absence matrix
 
