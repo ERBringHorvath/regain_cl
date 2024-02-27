@@ -155,16 +155,18 @@ Module 2 `regain bnL` or `regain bnS`
 
 **Module 2 example usage:**
 
+NOTE: We suggest using between 300 and 500 bootstraps and minimum 100 resamples
+
 `bnS`, Bayesian network structure learning analysis for less than 100 genes <br />
 `bnL`, Bayesian network structure learning analysis for 100 genes or greater
 
 For less than 100 genes:
 
-`regain bnS regain bnS -i matrix.csv -M metadata.csv -o bootstrapped_network -T 8 -n 3 -r 3`
+`regain bnS regain bnS -i matrix.csv -M metadata.csv -o bootstrapped_network -T 8 -n 500 -r 100`
                                             
 For 100 or more genes:
 
-`regain bnL -i matrix.csv -M metadata.csv -o bootstrapped_network -T 8 -n 3 -r 3`
+`regain bnL -i matrix.csv -M metadata.csv -o bootstrapped_network -T 8 -n 500 -r 100`
 
 _________________________________________________________________________________
 
