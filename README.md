@@ -176,9 +176,8 @@ Optional Module 3 `regain MVA`
 
 **Currently supported measures of distance:**
 
-`manhattan`, `euclidean`, `canberra`, `clark`, `bray`, <br />
-`kulczynski`, `jaccard`, `gower`, `altGower`, `morisita`, <br />
-`horn`, `mountford`, `raup`, `binomial`, `chao`, `cao`, `mahalanobis`, <br />
+`manhattan`, `euclidean`, `canberra`, `clark`, `bray`, `kulczynski`, `jaccard`, `gower`, <br />
+`horn`, `mountford`, `raup`, `binomial`, `chao`, `cao`, `mahalanobis``altGower`, `morisita`, <br />
 `chisq`, `chord`, `hellinger`
                                            
 `-i`, `--input`, input file in CSV format <br />
