@@ -155,7 +155,7 @@ Module 2 `regain bnL` or `regain bnS`
 
 **Module 2 example usage:**
 
-NOTE: We suggest using between 300 and 500 bootstraps and minimum 100 resamples
+**NOTE: We suggest using between 300 and 500 bootstraps and minimum 100 resamples**
 
 `bnS`, Bayesian network structure learning analysis for less than 100 genes <br />
 `bnL`, Bayesian network structure learning analysis for 100 genes or greater
@@ -189,7 +189,7 @@ Optional Module 3 `regain MVA`
 
 `regain MVA -i matrix.csv -m jaccard -c 3 -C 0.75`
 
-**NOTE: the MVA analysis with generate 2 files: a PNG and a PDF of the plot**
+**NOTE: the MVA analysis will generate 2 files: a PNG and a PDF of the plot**
 
 _________________________________________________________________________________
 
