@@ -135,8 +135,8 @@ Module 1.2 `regain matrix`
 NOTE: Discrete Bayesian network anlyses requires all variables to exist in at least two states. For ReGAIN, these two states are 'present' and 'absent'. Ubiquitously occurring genes will break the analysis. 
 Best practice is for *N* genomes, `--max` should MINIMALLY be defined as *N* - 1. Keep in mind that removing very low and very high abundance genes can reduce noise in the network.
                                             
-`regain matrix -d path/to/AMRfinder/results -s search_strings --simplify-gene-names --gene-type <br />
-resistance -f matrix.csv --min 5 --max 500 -o matrix_final.csv`
+`regain matrix -d path/to/AMRfinder/results -s search_strings --simplify-gene-names --gene-type` <br />
+`resistance -f matrix.csv --min 5 --max 500 -o matrix_final.csv`
 
 **NOTE: all results are saved in the 'ReGAIN_Dataset' folder, which will be generated within the directory defined by** `-d`
 
