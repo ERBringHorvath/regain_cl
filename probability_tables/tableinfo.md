@@ -1,4 +1,6 @@
-# ReGAIN Probability Tables
+# <ins>**ReGAIN Supplementary Tables**</ins>
+
+## ReGAIN Probability Tables
 
 ### **Probability tables were created using ReGAIN's Bayesian network structure learning module**
 
@@ -19,3 +21,11 @@ J. Salmonella enterica subsp. typhi <br />
 K. Staphylococcus aureus <br />
 L. Streptococcus pneumoniae <br />
 M. Clostridium difficile <br />
+
+## <ins>**Table S2**</ins>
+
+Occurrence of each resistance gene identified in each of 13 bacterial genomic populations.
+
+## <ins>**Table S7**</ins>
+
+Co-occurrence of select heavy metal and antibiotic resistance genes in Gram negative bacterial pathogens and *S. aureus*.
