@@ -201,3 +201,9 @@ Bayesian network analysis requires both data matrix and metadata files. MVA anal
 
 _________________________________________________________________________________
 
+# Citing ReGAIN
+
+Resistance Gene Association and Inference Network (ReGAIN): A Bioinformatics Pipeline for Assessing Probabilistic Co-Occurrence Between Resistance Genes in Bacterial Pathogens
+Elijah R. Bring Horvath, Mathew G. Stein, Matthew A Mulvey, Edgar Javier Hernandez, Jaclyn M. Winter
+bioRxiv 2024.02.26.582197; doi: https://doi.org/10.1101/2024.02.26.582197
+
