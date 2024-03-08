@@ -33,6 +33,14 @@ def simplify_gene_names(gene_name):
     gene_name = gene_name.replace("/", "_") # Replace forward slash with underscore
     return gene_name
 
+def detect_delimiter(file_path):
+    with open(file_path, 'r', newline='') as file:
+        first_line = file.readline()
+        comma_count = first_line.count(',')
+        tab_count = first_line.count('\t')
+
+    return '\t' if tab_count > comma_count else ','
+
 def run(args):
     import os
     import glob
@@ -62,7 +70,9 @@ def run(args):
 
     for f in all_filenames:
         try:
-            df = pd.read_csv(f, sep='\t', na_filter=False)
+            delimiter = detect_delimiter
+            
+            df = pd.read_csv(f, sep=delimiter, na_filter=False)
             if not df.empty and list(df.columns) != []:
                 valid_dfs.append(df)
             else:
@@ -77,10 +87,14 @@ def run(args):
 
     gene_type = args.gene_type.lower()
 
-    if gene_type == 'resistance':
-        combined_csv = combined_csv[(combined_csv['Element subtype'] == 'AMR') | (combined_csv['Element subtype'] == 'METAL') | (combined_csv['Element subtype'] == 'BIOCIDE') | (combined_csv['Element subtype'] == 'POINT')]
-    elif gene_type == 'virulence':
-        combined_csv = combined_csv[combined_csv['Element type'] == 'VIRULENCE']
+    if 'Element subtype' in combined_csv.columns:
+        if gene_type == 'resistance':
+            combined_csv = combined_csv[(combined_csv['Element subtype'] == 'AMR') | (combined_csv['Element subtype'] == 'METAL') | (combined_csv['Element subtype'] == 'BIOCIDE') | (combined_csv['Element subtype'] == 'POINT')]
+        elif gene_type == 'virulence':
+            combined_csv = combined_csv[combined_csv['Element type'] == 'VIRULENCE']
+
+    else:
+        print("Error with CSV file header.")
 
     # drop duplicates from the column named 'Gene symbol'
     combined_csv = combined_csv.drop_duplicates(subset=['Gene symbol'])
