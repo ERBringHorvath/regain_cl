@@ -23,6 +23,7 @@
         None
 """
 
+##Remove special characters for Bayesian network structure learning
 def simplify_gene_names(gene_name):
     gene_name = gene_name.replace("'", "p")  # Replace single quote with p
     gene_name = gene_name.replace('"', "pp")  # Replace double quote with p
@@ -33,6 +34,7 @@ def simplify_gene_names(gene_name):
     gene_name = gene_name.replace("/", "_") # Replace forward slash with underscore
     return gene_name
 
+##Allow tab or comma-sep CSV files
 def detect_delimiter(file_path):
     with open(file_path, 'r', newline='') as file:
         first_line = file.readline()
@@ -70,7 +72,7 @@ def run(args):
 
     for f in all_filenames:
         try:
-            delimiter = detect_delimiter
+            delimiter = detect_delimiter(f)
             
             df = pd.read_csv(f, sep=delimiter, na_filter=False)
             if not df.empty and list(df.columns) != []:
