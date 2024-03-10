@@ -19,7 +19,7 @@ NCBI AMRfinderPlus
 _________________________________________________________________________________
 
 
-**It is suggested that ReGAIN and all prerequisites are installed within a Conda environment**
+**We suggest that ReGAIN and all prerequisites are installed within a Conda environment**
 
 Download [miniforge](https://github.com/conda-forge/miniforge/)
 
