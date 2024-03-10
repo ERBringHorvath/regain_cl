@@ -73,6 +73,7 @@ def run(args):
     threads_flag = ""
     if args.threads:
         threads_flag = f"--threads {args.threads}"
+        print(f"\033[36m Using {threads_flag} cores.\n" + "\033[0m")
 
     output_directory = os.path.join(directory, "AMRfinder_Results")
     if args.output_dir:
