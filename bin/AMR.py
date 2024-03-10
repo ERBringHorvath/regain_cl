@@ -64,7 +64,7 @@ def run(args):
     if args.organism is not None:  
         if args.organism in organisms:  
             organism_flag = f"-O {organisms[args.organism]}"
-            print(f"\033[36m Starting {organism_flag} analysis...\n" + "\033[0m")
+            print(f"\033[36m Starting {args.organism} analysis...\n" + "\033[0m")
         else:  # If provided but not valid
             print("\033[36m Sorry, not a valid organism. Hit CTRL + C to restart or continue without organism-specific analysis.\n" + "\033[0m")
     else:  # If the organism argument is not provided
@@ -73,7 +73,7 @@ def run(args):
     threads_flag = ""
     if args.threads:
         threads_flag = f"--threads {args.threads}"
-        print(f"\033[36m Using {threads_flag} cores.\n" + "\033[0m")
+        print(f"\033[36m Using {args.threads} cores.\n" + "\033[0m")
 
     output_directory = os.path.join(directory, "AMRfinder_Results")
     if args.output_dir:
