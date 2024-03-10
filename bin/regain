@@ -53,7 +53,7 @@ def main():
     bnL_parser.add_argument('-M', '--metadata', required=True, help='Input metadata file with genes to query')
     bnL_parser.add_argument('-o', '--output_boot', required=True, help='Output file name for Network')
     bnL_parser.add_argument('-T', '--threads', type=int, help='Dedicated threads')
-    bnL_parser.add_argument('-n', '--number_of_bootstraps', type=int, help='Bootstrap number (ideally 300-500)')
+    bnL_parser.add_argument('-n', '--number-of-bootstraps', type=int, help='Bootstrap number (ideally 300-500)')
     bnL_parser.add_argument('-r', '--number-of-resamples', required=True, help='Input number of data resamples')
     
     bnS_parser = subparsers.add_parser('bnS')
@@ -61,7 +61,7 @@ def main():
     bnS_parser.add_argument('-M', '--metadata', required=True, help='Input metadata file with genes to query')
     bnS_parser.add_argument('-o', '--output_boot', required=True, help='Output file name for Network')
     bnS_parser.add_argument('-T', '--threads', type=int, help='Dedicated threads')
-    bnS_parser.add_argument('-n', '--number_of_bootstraps', type=int, help='Bootstrap number (ideally 300-500)')
+    bnS_parser.add_argument('-n', '--number-of-bootstraps', required=True, type=int, help='Bootstrap number (ideally 300-500)')
     bnS_parser.add_argument('-r', '--number-of-resamples', required=True, help='Input number of data resamples')
 
     matrix_parser = subparsers.add_parser('matrix')
