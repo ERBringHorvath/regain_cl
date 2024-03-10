@@ -59,11 +59,16 @@ def run(args):
         "Vibrio_cholerae": "Vibrio_cholerae"
     }
 
+    ##Specific or general
     organism_flag = ""
-    if args.organism and args.organism in organisms:
-        organism_flag = f"-O {organisms[args.organism]}"
-    else:
-        print("Sorry, not a valid organism. Hit CTR + C to restart or continue without organism-specific analysis.")
+    if args.organism is not None:  
+        if args.organism in organisms:  
+            organism_flag = f"-O {organisms[args.organism]}"
+            print(f"\033[36m Starting {organism_flag} analysis...\n" + "\033[0m")
+        else:  # If provided but not valid
+            print("\033[36m Sorry, not a valid organism. Hit CTRL + C to restart or continue without organism-specific analysis.\n" + "\033[0m")
+    else:  # If the organism argument is not provided
+        print("\033[36m Starting general analysis...\n" + "\033[0m")
 
     threads_flag = ""
     if args.threads:
