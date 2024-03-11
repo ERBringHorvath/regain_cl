@@ -128,6 +128,12 @@ def run(args):
 
         metadata_file = os.path.join(output_directory, 'metadata.csv')
         metadata_df.to_csv(metadata_file, index = False, header = True)
+    else: ##Create metadata file with unchanged variable names
+        metadata_df = search_strings_df.copy()
+        metadata_df.columns = ['Gene', 'GeneClass']
+        
+        metadata_file = os.path.join(output_directory, 'metadata.csv')
+        metadata_df.to_csv(metadata_file, index = False, header = True)
 
     # Step 2: Search for strings and filter columns by sum
     csv_dir = path
