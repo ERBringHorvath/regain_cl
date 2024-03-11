@@ -129,6 +129,7 @@ Module 1.2 `regain matrix`
 `--max`, maximum gene occurrence cutoff (should be less than number of genomes, see NOTE below) <br />
 `--simplify-gene-names`, replaces special characters in gene names, i.e., aph(3’’)-Ib becomes aph3pp_Ib. This is <ins>**required**</ins> for the Bayesian network structure learning module <br />
 `-o`, `--output`, output of final curated presence/absence matrix
+`--verbose`, reports true gene counts, not just binary `(1)` or `(0)`
 
 **Module 1.2 example usage**
 
