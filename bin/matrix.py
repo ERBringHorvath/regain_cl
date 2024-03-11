@@ -139,21 +139,30 @@ def run(args):
 
     csv_files = [os.path.join(csv_dir, f) for f in os.listdir(csv_dir) if f.endswith('.csv')]
 
+    ##Create matrix
     with open(search_output_path, 'w', newline='') as output_file:
         writer = csv.writer(output_file)
         headers = ['file']
         headers.extend(search_strings)
         writer.writerow(headers)
-
+    
         for f in csv_files:
             row = [os.path.basename(f)]
+            if args.verbose:
+                counts = [0] * len(search_strings)  #Initialize counts to 0 for each search string
+            else:
+                counts = [0] * len(search_strings)  #Presence/Absence mode also starts with counts at 0
+    
             with open(f, 'r') as csv_file:
-                counts = [0] * len(search_strings)
-                for line in csv_file:
-                    for i, search_str in enumerate(search_strings):
-                        if search_str in line:
-                            counts[i] = 1
-                row.extend(counts)
+                csv_content = csv_file.read()
+                for i, search_str in enumerate(search_strings):
+                    if args.verbose:
+                        #Count actual occurrences of the search string in the file
+                        counts[i] = csv_content.count(search_str)
+                    else:
+                        #Check for presence (1) or absence (0)
+                        counts[i] = 1 if search_str in csv_content else 0
+            row.extend(counts)
             writer.writerow(row)
 
     input_file = search_output_path
