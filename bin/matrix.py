@@ -1,4 +1,6 @@
 """
+    ReGAIN Copyright 2024 University of Utah
+
     Generates a presence/absence matrix for resistance or virulence genes from AMRfinder results.
     
     This module processes CSV files containing AMRfinderPlus results to create a curated matrix
@@ -14,10 +16,6 @@
         max_occurrence (int): Maximum allowed occurrence of genes.
         simplify_gene_names (bool, optional): Flag to simplify gene names for analysis compatibility. Default is False.
         output_file (str): Path to save the final presence/absence matrix.
-        
-    Note:
-        The creation of this dataset is a critical step in preparing data for advanced genomic analysis
-        under the ReGAIN framework, which is under US provisional patent 63/526,656.
     
     Returns:
         None
