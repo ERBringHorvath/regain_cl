@@ -1,4 +1,6 @@
 """
+    ReGAIN Copyright 2024 University of Utah
+    
     Performs Bayesian network structure learning on a given dataset to identify relationships between genes.
     
     This function applies either a small-scale (bnS) or large-scale (bnL) approach based on the dataset size,
@@ -13,9 +15,6 @@
         threads (int): Number of CPU cores to use.
         number_of_bootstraps (int): How many bootstrap iterations to perform.
         number_of_resamples (int): Number of resamples for bootstrapping.
-        
-    Note:
-        This module is a part of ReGAIN, which is under US provisional patent 63/526,656.
     
     Returns:
         None
