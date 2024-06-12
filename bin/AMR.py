@@ -1,4 +1,6 @@
 """
+    ReGAIN Copyright 2024 University of Utah
+    
     Identifies resistance and virulence genes from FASTA files using the AMRfinderPlus tool.
     
     This function is part of the ReGAIN suite, designed to analyze genomic sequences to detect
@@ -16,10 +18,6 @@
         organism (str, optional): Specific organism to analyze. If None, analysis is non-specific.
         threads (int, optional): Number of CPU cores to dedicate to the analysis. Default is 1.
         output_dir (str): Directory to store the AMRfinder results.
-        
-    Note:
-        ReGAIN and its analytical modules are under US provisional patent 63/526,656. Users are encouraged
-        to consult the patent status for terms of use and licensing information.
     
     Returns:
         None
