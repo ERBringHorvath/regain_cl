@@ -1,4 +1,6 @@
 """
+    ReGAIN Copyright 2024 University of Utah
+
     Conducts Multidimensional Variance Analysis (MVA) on genomic data to explore gene distribution and relationships.
     
     This optional module supports various measures of distance to analyze the genomic data, providing insights
@@ -10,11 +12,6 @@
         method (str): Measure of distance method to use for analysis.
         centers (int): Number of centers for the multidimensional analysis.
         confidence (float): Confidence interval for ellipses in the plot.
-        
-    Note:
-        ReGAIN's MVA module offers advanced capabilities for genomic analysis under the framework's
-        US provisional patent 63/526,656. The selection of distance measures and analytical approach are
-        integral to understanding genomic data through multidimensional analysis.
     
     Returns:
         None
