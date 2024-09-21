@@ -123,7 +123,8 @@ To replace special characters during dataset creation, include `--simplify-gene-
 Module 1.2 `regain matrix`
                                        
 `-d`, `--directory`, path to AMRfinder results in CSV format <br />
-`-s`, `--search-strings-output`, presence/absence matrix of all genes in your dataset, regardless of `--min`/`--max` values <br />
+`-s`, `--search-strings-output`, presence/absence matrix of all genes in your dataset, regardless of <br />
+`--min`/`--max` values <br />
 `--gene-type`, searches for `resistance` or `virulence` genes <br />
 `-f`, `--search-output`, name of output file where gene names will be stored <br />
 `--min`, minimum gene occurrence cutoff <br />
