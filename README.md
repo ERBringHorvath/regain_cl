@@ -88,6 +88,7 @@ Module 1.1 `regain AMR`
 `Burkholderia_pseudomallei` <br />
 `Campylobacter` <br />
 `Clostridioides_difficile` <br />
+`Enterobacter_cloacae` <br />
 `Enterococcus_faecalis` <br />
 `Enterococcus_faecium` <br />
 `Escherichia` <br />
