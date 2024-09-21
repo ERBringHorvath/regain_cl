@@ -123,9 +123,9 @@ To replace special characters during dataset creation, include `--simplify-gene-
 Module 1.2 `regain matrix`
                                        
 `-d`, `--directory`, path to AMRfinder results in CSV format <br />
-`-s`, `--search-strings-output`, name of output file where gene names will be stored <br />
+`-s`, `--search-strings-output`, presence/absence matrix of all genes in your dataset, regardless of `--min`/`--max` values <br />
 `--gene-type`, searches for `resistance` or `virulence` genes <br />
-`-f`, `--search-output`, presence/absence matrix of all genes in your dataset, regardless of `--min`/`--max` values <br />
+`-f`, `--search-output`, name of output file where gene names will be stored <br />
 `--min`, minimum gene occurrence cutoff <br />
 `--max`, maximum gene occurrence cutoff (should be less than number of genomes, see NOTE below) <br />
 `--simplify-gene-names`, replaces special characters in gene names, i.e., aph(3’’)-Ib becomes aph3pp_Ib. This is <ins>**required**</ins> for the Bayesian network structure learning module <br />
