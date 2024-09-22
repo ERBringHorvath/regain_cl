@@ -92,7 +92,7 @@ Module 1.1 `regain AMR`
 `Enterococcus_faecalis` <br />
 `Enterococcus_faecium` <br />
 `Escherichia` <br />
-`Klebsiella` <br />
+`Klebsiella_pneumoniae` <br />
 `Neisseria` <br />
 `Pseudomonas_aeruginosa` <br />
 `Salmonella` <br />
