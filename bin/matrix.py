@@ -11,7 +11,8 @@
     Parameters:
         amr_results_dir (str): Directory containing AMRfinder results in CSV format.
         gene_type (str): Type of genes to search for ('resistance' or 'virulence').
-        search_output (str): Name of the output file where gene names will be stored.
+        search_output (str): Name of the output file where all variable names will be stored.
+        search_strings_output (str): Name of the output file where unmodified data matrix will be stored.
         min_occurrence (int): Minimum desired occurrence of genes across genomes.
         max_occurrence (int): Maximum allowed occurrence of genes.
         simplify_gene_names (bool, optional): Flag to simplify gene names for analysis compatibility. Default is False.
@@ -40,6 +41,48 @@ def detect_delimiter(file_path):
         tab_count = first_line.count('\t')
 
     return '\t' if tab_count > comma_count else ','
+
+def combine_amr_output_files(directory, output_directory):
+    import os, glob
+    import pandas as pd
+
+    original_cwd = os.getcwd()
+    os.chdir(directory)
+
+    all_filenames = glob.glob('*.csv')
+
+    if not all_filenames:
+        raise FileNotFoundError(f"No CSV files found in the directory: {directory}")
+    
+    dfs = []
+
+    #Read the first file with headers
+    try:
+        first_df = pd.read_csv(all_filenames[0], na_filter=False)
+        dfs.append(first_df)
+    except Exception as e:
+        print(f"Skipping {all_filenames[0]} due to an error: {e}")
+
+    #Read all subsequent files, skipping headers
+    for file in all_filenames[1:]:
+        try:
+            df = pd.read_csv(file, na_filter=False, header=None)  # Skip header row
+            df.columns = first_df.columns  # Set the columns to match the first file
+            dfs.append(df)
+        except Exception as e:
+            print(f"Skipping {file} due to an error: {e}")
+
+    #Concatenate all DataFrames
+    if dfs:
+        combined_df = pd.concat(dfs, ignore_index=True)
+        combined_output_file = os.path.join(output_directory, 'combined_AMR_results.csv')
+
+        combined_df.to_csv(combined_output_file, index=False, sep='\t')
+        print(f"Combined results saved to {combined_output_file}")
+    else:
+        raise ValueError("No valid CSV files to combine.")
+
+    os.chdir(original_cwd)
 
 def run(args):
     import os
@@ -192,3 +235,9 @@ def run(args):
     else col for col in df_filtered.columns]
 
     df_filtered.to_csv(filter_output_path, index=False)
+
+    #Combine results
+    try:
+        combine_amr_output_files(args.directory, output_directory)
+    except Exception as e:
+        print(f"Error while combining AMRfinder output files: {e}")
