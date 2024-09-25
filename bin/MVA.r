@@ -62,7 +62,7 @@ add_ellipses <- function(plot, df, confidence) {
       stat_ellipse(aes(fill=cluster, group=cluster), type = 'norm', level=confidence, 
                    geom = 'polygon', alpha = I(0.05), show.legend=F) +
       stat_ellipse(aes(group=cluster), type = 'norm', level=confidence, linetype = 4, 
-                   color="black", size=1, 
+                   color="black", linewidth=1, 
                    geom = 'path', show.legend=FALSE)
   }, error = function(e) {
     message("Failed to add confidence ellipses: ", e$message)
