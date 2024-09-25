@@ -30,10 +30,10 @@ if (!dist_method %in% allowed_methods) {
        call. = FALSE)
 }
 
-print(paste("args[1]", args[1]))
-print(paste("args[2]", args[2]))
-print(paste("args[3]", args[3]))
-print(paste("args[4]", args[4]))
+print(paste("Data File:", args[1]))
+print(paste("Method:", args[2]))
+print(paste("Number of Centers:", args[3]))
+print(paste("Confidence:", args[4]))
 
 ##Read in data
 data <- read.csv(matrix_file_path)
