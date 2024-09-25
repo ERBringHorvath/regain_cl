@@ -8,9 +8,12 @@ confidence <- as.numeric(args[4])
 
 pkgs <- c('vegan', 'ggplot2', 'tidyr', 'dplyr', 'ellipse', 'tibble')
 for (pkg in pkgs) {
-    if(!require(pkg, character.only = TRUE)) {
-        install.packages(pkg)
+  suppressMessages({
+    if (!require(pkg, character.only=TRUE)) {
+      install.packages(pkg)
+      suppressMessages(library(pkg, character.only=TRUE))
     }
+  })
 }
 
 allowed_methods <- c('manhattan', 'euclidean', 'canberra', 'clark', 'bray', 
