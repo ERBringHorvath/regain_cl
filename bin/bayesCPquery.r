@@ -18,16 +18,16 @@ print(paste("Number of Resamples:", args[6]))
 # Install required packages if not already installed
 pkgs <- c('dplyr', 'parallel', 'pbapply', 'BiocManager', 'RColorBrewer', 'visNetwork', 'igraph', 'reshape2')
 for (pkg in pkgs) {
-    if(!require(pkg, character.only = TRUE)) {
-        install.packages(pkg)
-    }
+  if(!require(pkg, character.only = TRUE)) {
+    install.packages(pkg)
+  }
 }
 
 pkgs_b <- c('bnlearn', 'gRain')
 for (pkgs in pkgs_b) {
-    if(!require(pkgs, character.only = TRUE)) {
-        BiocManager::instal(pkgs)
-    }
+  if(!require(pkgs, character.only = TRUE)) {
+    BiocManager::instal(pkgs)
+  }
 }
 
 data <- read.csv(input_file, row.names = 1)
@@ -155,7 +155,7 @@ write.csv(stats, "Results.csv", row.names = FALSE)
 calculate_ratio <- function(stats, gene1, gene2) {
   prob1 <- stats %>%
     filter(Gene_1 == gene1, Gene_2 == gene2) %>%
-      pull(Conditional_Probability_Mean)
+    pull(Conditional_Probability_Mean)
   prob2 <- stats %>%
     filter(Gene_1 == gene2, Gene_2 == gene1) %>%
     pull(Conditional_Probability_Mean)
@@ -226,7 +226,7 @@ edges <- visZach$edges
 
 get_width <- function(node_from, node_to, stats) {
   row <- stats %>% filter((Gene_1 == node_from & Gene_2 == node_to) |
-                          (Gene_1 == node_to & Gene_2 == node_from))
+                            (Gene_1 == node_to & Gene_2 == node_from))
   if(nrow(row) > 0) {
     width_value <- row$Conditional_Probability_CI_high[1]
     # Check for negative or unexpected values
@@ -245,19 +245,31 @@ edges$width <- sapply(1:nrow(edges), function(i) get_width(edges$from[i], edges$
 # Rescale the weights
 edges$width <- scales::rescale(edges$width, to = c(1, 5))
 
-nodes$group <- lookup[valid_genes]
+nodes <- nodes[nodes$id %in% valid_genes, ]
 
-# Colors
-grp <- as.numeric(as.factor(nodes$group))
-n <- length(unique(grp))
-colors <- brewer.pal.info[brewer.pal.info$colorblind == T, ]
-col_vec <- unlist(mapply(brewer.pal, colors$maxcolors, rownames(colors)))
-colSide <- sample(col_vec, n)[grp]
-nodes$color <- colSide
+nodes$group <- lookup[nodes$id]
 
-# Prepare legend
-lnodes <- data.frame(color = unique(nodes$color),
-                     label = unique(nodes$group),
+palette1 <- RColorBrewer::brewer.pal(8, "Set3")
+palette2 <- RColorBrewer::brewer.pal(8, "Set2")
+palette3 <- RColorBrewer::brewer.pal(12, "Paired")
+palette4 <- RColorBrewer::brewer.pal(8, "Dark2")
+
+color_palette <- c(palette1, palette2, palette3, palette4)
+
+unique_groups <- unique(nodes$group)
+
+color_palette <- color_palette[1:length(unique_groups)]
+
+if (length(unique_groups) > length(color_palette)) {
+  color_palette <- rep(color_palette, length.out = length(unique_groups))
+}
+
+group_color_lookup <- setNames(color_palette, unique_groups)
+nodes$color <- group_color_lookup[nodes$group]
+
+# Prepare the legend (lnodes) to match the unique groups and their respective colors
+lnodes <- data.frame(color = color_palette,
+                     label = unique_groups,
                      font.color = 'white')
 
 # Create and save the network
