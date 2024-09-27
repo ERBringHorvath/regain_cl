@@ -74,7 +74,7 @@ ________________________________________________________________________________
 
 ## **Resistance and Virulence Gene Identification** 
 
-Module 1.1 `regain AMR`
+Module 1.0 `regain AMR`
 
 `-d`, `--directory`, path to directory containing FASTA files to analyze <br />
 `-O`, `--organism`, specify what organism (if any) you want to analyze (optional flag) <br />
@@ -120,7 +120,7 @@ ________________________________________________________________________________
 **NOTE**: variable names <ins>**cannot**</ins> contain special characters–but don't worry, we've taken care of that! <br />
 To replace special characters during dataset creation, include `--simplify-gene-names` in the command!
 
-Module 1.2 `regain matrix`
+Module 1.1 `regain matrix`
                                        
 `-d`, `--directory`, path to AMRfinder results in CSV format <br />
 `-s`, `--search-strings-output`, presence/absence matrix of all genes in your dataset, regardless of <br />
@@ -133,7 +133,7 @@ Module 1.2 `regain matrix`
 `-o`, `--output`, output of final curated presence/absence matrix <br />
 `--verbose`, reports actual variable counts, overwriting binary output
 
-**Module 1.2 example usage**
+**Module 1.1 example usage**
 
 NOTE: Discrete Bayesian network anlyses requires all variables to exist in at least two states. For ReGAIN, these two states are 'present' and 'absent'. Ubiquitously occurring genes will break the analysis. 
 Best practice is for *N* genomes, `--max` should MINIMALLY be defined as *N* - 1. Keep in mind that removing very low and very high abundance genes can reduce noise in the network.
