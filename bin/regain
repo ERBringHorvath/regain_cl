@@ -72,22 +72,7 @@ def main():
     matrix_parser.add_argument('--min', type=int, default=5, required=True, help='Minimum required gene occurrences')
     matrix_parser.add_argument('--max', type=int, help='Maximum allowed gene occurrences')
     matrix_parser.add_argument('-o', '--output', required=True, help='Output of final presence/absence matrix')
-    matrix_parser.add_argument('--gene-type', required=True, choices=['resistance', 'virulence', 'all'], help='specify gene type: resistance, virulence, or all')
-    
-    # split_fasta_parser = subparsers.add_parser('split_fasta')
-    # split_fasta_parser.add_argument('-i', '--input', required=True, help="Input multi-FASTA file")
-    # split_fasta_parser.add_argument('-o', '--output_dir', required=True, help="Output directory for split FASTA files")
-
-    # split_genbank_parser = subparsers.add_parser('split_genbank')
-    # split_genbank_parser.add_argument('-i', '--input', help='Input multi-genbank file')
-    # split_genbank_parser.add_argument('-o', '--output_dir', help='Output directory for split genbank files')
-
-    # ### New addition/delete if bugged
-    # rules_parser = subparsers.add_parser('rules')
-    # rules_parser.add_argument('-i', '--input', required=True, help='Input file')
-    # rules_parser.add_argument('-o', '--output_file', required=True, help='Output file')
-
-    #probs_parser = subparsers.add_parser('probs')
+    matrix_parser.add_argument('--gene-type', required=True, choices=['resistance', 'virulence'], help='specify gene type: resistance, virulence)
 
     args = parser.parse_args()
 
@@ -96,7 +81,6 @@ def main():
     logging.info(f'Program started at {datetime.now()}')
     logging.info(f'User command: {" ".join(sys.argv)}')
 
-    # Set up logging for rpy2 to suppress warning messages
     logging.getLogger('rpy2').setLevel(logging.INFO)
 
     if args.command == 'AMR':
@@ -111,15 +95,6 @@ def main():
     elif args.command == 'matrix':
         import matrix
         matrix.run(args)
-    # elif args.command == 'split_fasta':
-    #     import split_fasta
-    #     split_fasta.run(args)
-    # elif args.command == 'split_genbank':
-    #     import split_genbank
-    #     split_genbank.run(args)
-    # elif args.command == 'rules':
-    #     import rules
-    #     rules.run(args)
     else:
         parser.print_help()
     
