@@ -172,6 +172,7 @@ For 100 or more genes:
 `regain bnL -i matrix_filtered.csv -M metadata.csv -o bootstrapped_network -T 8 -n 500 -r 100`
 
 **Module 2 Output:**
+
 Results.csv: results file of all conditional probability and relative risk values <br />
 post_hoc_analysis.csv: results file of all bidirectional probability and fold change scores <br />
 Bayesian_Network.html: interactive Bayesian network
