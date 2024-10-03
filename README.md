@@ -158,22 +158,38 @@ Module 2 `regain bnL` or `regain bnS`
 
 **Module 2 example usage:**
 
-**NOTE: We suggest using between 300 and 500 bootstraps and minimum 100 resamples**
+**NOTE: We suggest using between 300 and 500 bootstraps and 100 resamples**
 
 `bnS`, Bayesian network structure learning analysis for less than 100 genes <br />
 `bnL`, Bayesian network structure learning analysis for 100 genes or greater
 
 For less than 100 genes:
 
-`regain bnS regain bnS -i matrix.csv -M metadata.csv -o bootstrapped_network -T 8 -n 500 -r 100`
+`regain bnS regain bnS -i matrix_filtered.csv -M metadata.csv -o bootstrapped_network -T 8 -n 500 -r 100`
                                             
 For 100 or more genes:
 
-`regain bnL -i matrix.csv -M metadata.csv -o bootstrapped_network -T 8 -n 500 -r 100`
+`regain bnL -i matrix_filtered.csv -M metadata.csv -o bootstrapped_network -T 8 -n 500 -r 100`
+
+**Module 2 Output:**
+Results.csv: results file of all conditional probability and relative risk values <br />
+post_hoc_analysis.csv: results file of all bidirectional probability and fold change scores <br />
+Bayesian_Network.html: interactive Bayesian network
 
 _________________________________________________________________________________
 
 ## **Stand Alone Network Visualization**
+
+`regain network`
+
+`-i`, `--input`, input RDS file generated from `bnS`/`bnL` analysis <br />
+`-d`, `--data`, input filtered data matrix file <br />
+`-M`, `--metadata`, input metadata file <br />
+`-s`, `--statistics_results`, input 'Results.csv' file from `bnS`/`bnL` analysis
+
+**Example usage:**
+
+`regain network -i network.rds -d matrix_filtered.csv -M metadata.csv -s Results.csv`
 
 ## **Multidimensional Analyses**
 
