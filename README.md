@@ -192,6 +192,10 @@ ________________________________________________________________________________
 
 `regain network -i network.rds -d matrix_filtered.csv -M metadata.csv -s Results.csv`
 
+**Output:**
+
+`Bayesian_Network.html`, interactive Bayesian network
+
 ## **Multidimensional Analyses**
 
 Optional Module 3 `regain MVA`
