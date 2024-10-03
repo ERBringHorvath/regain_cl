@@ -173,6 +173,8 @@ For 100 or more genes:
 
 _________________________________________________________________________________
 
+## **Stand Alone Network Visualization**
+
 ## **Multidimensional Analyses**
 
 Optional Module 3 `regain MVA`
