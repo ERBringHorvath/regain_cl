@@ -30,6 +30,12 @@ def run_mva(args):
     command = [path_to_shell_script, args.input, args.method, str(args.num_centers), str(args.confidence)]
     subprocess.run(command)
 
+def run_network(args):
+    dir_of_executables = os.path.dirname(os.path.realpath(__file__))
+    path_to_shell_script = os.path.join(dir_of_executables, 'bayesnetwork.sh')
+    command = [path_to_shell_script, args.input, args.data, args.metadata, args.statistics_results]
+    subprocess.run(command)
+
 def main():
     parser = argparse.ArgumentParser(prog='regain')
     parser.add_argument('-v', '--version', action='version', version='%(prog)s v.1.2.0')
@@ -74,6 +80,12 @@ def main():
     matrix_parser.add_argument('-o', '--output', required=True, help='Output of final presence/absence matrix')
     matrix_parser.add_argument('--gene-type', required=True, choices=['resistance', 'virulence'], help='specify gene type: resistance, virulence)
 
+    network_parser = subparsers.add_parser('network')
+    network_parser.add_argument('-i', '--input', required=True, help='Input Network .RDS File')
+    network_parser.add_argument('-d', '--data', required=True, help='Input data matrix file')
+    network_parser.add_argument('-M', '--metadata', required=True, help='Input metadata file')
+    network_parser.add_argument('-s', '--statistics_results', required=True, help='Input results file from bnL/bnS analysis')
+
     args = parser.parse_args()
 
     # Set up logging for our program
@@ -95,6 +107,9 @@ def main():
     elif args.command == 'matrix':
         import matrix
         matrix.run(args)
+    elif args.command == 'network':
+        import bayesnetwork
+        run_network(args)
     else:
         parser.print_help()
     
