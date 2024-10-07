@@ -34,7 +34,6 @@ data <- read.csv(input_file, row.names = 1)
 d_fact <- data %>% mutate_if(is.numeric, as.factor)
 
 n_cores <- threads
-print(paste("Using", threads, "threads for parallel processing."))
 cl = parallel::makeCluster(n_cores)
 clusterSetRNGStream(cl, 13245)
 
@@ -45,7 +44,6 @@ cat("\n \033[32mBootstrapping started.\033[39m\n \n")
 boot = boot.strength(data = d_fact, R = number_of_bootstraps, algorithm = "hc",
                      algorithm.args = list(score="bde", iss=10), cluster = cl)
 
-print("Bootstrapping Finished")
 output_boot <- ifelse(grepl("\\.rds$", args[3]), args[3], paste0(args[3], ".rds"))
 saveRDS(boot, file = output_boot)
 
