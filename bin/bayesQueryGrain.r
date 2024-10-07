@@ -58,7 +58,7 @@ lookup <- setNames(as.character(metadata[, 2]), metadata[, 1])
 valid_genes <- intersect(gene_names, colnames(data))
 
 Nlists <- resamples
-cat(paste("\n \033[32mResamples:\033[39m", args[6]))
+cat(paste("\n \033[32mResamples:\033[39m", args[6], "\n"))
 
 boosts = function(d_fact, Nlists, avg_boot) {
   sample_data_list <- lapply(1:Nlists, function(i) {
@@ -75,7 +75,7 @@ epsilon <- ((N + 0.5) / (N + 1))
 
 combinations <- expand.grid(Gene_1 = valid_genes, Gene_2 = valid_genes)
 combinations <- subset(combinations, Gene_1 != Gene_2)
-cat(paste("\n \033[32mNumber of genes in dataset:\033[39m", N))
+cat(paste("\n \033[32mNumber of genes in dataset:\033[39m", N, "\n"))
 
 max_combinations <- nrow(combinations)
 
@@ -103,7 +103,7 @@ compute_gene_stats <- function(gene1, gene2, grain_net, epsilon) {
 n_queries <- (N * (N - 1) * Nlists)
 
 registerDoParallel(cores = n_cores)
-cat(paste("\n \033[32mCores registered:\033[39m", n_cores))
+cat(paste("\n \033[32mCores registered:\033[39m", n_cores, "\n"))
 cat(paste("\n \033[32mNumber of queries:\033[39m", n_queries, "\n"))
 cat("\n \033[35mQuerying network. Please be patient.\033[39m\n \n")
 
