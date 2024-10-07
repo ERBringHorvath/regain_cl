@@ -3,7 +3,7 @@ args <- commandArgs(trailingOnly = TRUE)
 input_file <- args[1]
 metadata_file <- args[2]
 output_boot <- args[3]
-threads <- as.integer(args[4])
+threads <- if (length(args) >= 4 && !is.na(as.integer(args[4]))) as.integer(args[4]) else 2
 number_of_bootstraps <- as.integer(args[5])
 resamples <- as.integer(args[6])
 
@@ -11,7 +11,7 @@ print("User Inputs:")
 print(paste("Matrix:", args[1]))
 print(paste("Metadata:", args[2]))
 print(paste("Bootstrapped Network Name:", args[3]))
-print(paste("Number of Threads:", args[4]))
+print(paste("Number of Threads:", threads))
 print(paste("Number of Bootstraps:", args[5]))
 print(paste("Number of Resamples:", args[6]))
 
