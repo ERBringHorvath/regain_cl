@@ -110,7 +110,7 @@ n_queries <- (N * (N - 1) * Nlists)
 
 cat(paste("\n \033[32mCores registered:\033[39m", n_cores))
 cat(paste("\n \033[32mNumber of queries:\033[39m", n_queries, "\n"))
-cat("\n \033[32mQuerying network. Please be patient.\033[39m\n \n")
+cat("\n \033[35mQuerying network. Please be patient.\033[39m\n \n")
 
 counter <- 1
 for (i in 1:max_combinations) {
