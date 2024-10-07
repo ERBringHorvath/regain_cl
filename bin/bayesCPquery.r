@@ -206,7 +206,7 @@ write.csv(post_hoc, "post_hoc_analysis.csv", row.names = FALSE)
 
 ##Stop cluster
 parallel::stopCluster(cl)
-print("Stats Calculated")
+cat("\n \033[032mStatistics calculated.\033[39m \n")
 
 ## Prepare data for the network visualization
 net <- igraph.from.graphNEL(as.graphNEL(avg_boot))
