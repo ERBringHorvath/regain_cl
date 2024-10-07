@@ -58,7 +58,6 @@ lookup <- setNames(as.character(metadata[, 2]), metadata[, 1])
 valid_genes <- intersect(gene_names, colnames(data))
 
 Nlists <- resamples
-cat(paste("\n \033[32mResamples:\033[39m", args[6], "\n"))
 
 boosts = function(d_fact, Nlists, avg_boot) {
   sample_data_list <- lapply(1:Nlists, function(i) {
