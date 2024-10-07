@@ -16,7 +16,7 @@ print(paste("Number of Bootstraps:", args[5]))
 print(paste("Number of Resamples:", args[6]))
 
 # Install required packages if not already installed
-pkgs <- c('dplyr', 'parallel', 'pbapply', 'BiocManager', 'RColorBrewer', 'visNetwork', 'igraph', 'reshape2', 'doParallel', 'foreach')
+pkgs <- c('dplyr', 'parallel', 'pbapply', 'BiocManager', 'RColorBrewer', 'visNetwork', 'igraph', 'doParallel', 'foreach')
 for (pkg in pkgs) {
   if(!require(pkg, character.only = TRUE)) {
     install.packages(pkg)
@@ -34,7 +34,6 @@ data <- read.csv(input_file, row.names = 1)
 d_fact <- data %>% mutate_if(is.numeric, as.factor)
 
 n_cores <- threads
-print(paste("Using", threads, "threads for parallel processing."))
 cl = parallel::makeCluster(n_cores)
 clusterSetRNGStream(cl, 13245)
 
@@ -45,7 +44,6 @@ cat("\n \033[32mBootstrapping started.\033[39m\n \n")
 boot = boot.strength(data = d_fact, R = number_of_bootstraps, algorithm = "hc",
                      algorithm.args = list(score="bde", iss=10), cluster = cl)
 
-print("Bootstrapping Finished")
 output_boot <- ifelse(grepl("\\.rds$", args[3]), args[3], paste0(args[3], ".rds"))
 saveRDS(boot, file = output_boot)
 
@@ -60,7 +58,7 @@ lookup <- setNames(as.character(metadata[, 2]), metadata[, 1])
 valid_genes <- intersect(gene_names, colnames(data))
 
 Nlists <- resamples
-print(paste("Resamples:", args[6]))
+cat(paste("\n \033[32mResamples:\033[39m", args[6]))
 
 boosts = function(d_fact, Nlists, avg_boot) {
   sample_data_list <- lapply(1:Nlists, function(i) {
@@ -77,7 +75,7 @@ epsilon <- ((N + 0.5) / (N + 1))
 
 combinations <- expand.grid(Gene_1 = valid_genes, Gene_2 = valid_genes)
 combinations <- subset(combinations, Gene_1 != Gene_2)
-print(paste("Number of genes in datset:", N))
+cat(paste("\n \033[32mNumber of genes in dataset:\033[39m", N))
 
 max_combinations <- nrow(combinations)
 
@@ -102,9 +100,12 @@ compute_gene_stats <- function(gene1, gene2, grain_net, epsilon) {
        risk_data = data.frame(Gene_1 = gene1, Gene_2 = gene2, Relative_Risk = relodds))
 }
 
+n_queries <- (N * (N - 1) * Nlists)
+
 registerDoParallel(cores = n_cores)
-print(paste("Cores Registered:", n_cores))
-cat("\n \033[32mQuerying network. Please be patient.\033[39m\n \n")
+cat(paste("\n \033[32mCores registered:\033[39m", n_cores))
+cat(paste("\n \033[32mNumber of queries:\033[39m", n_queries, "\n"))
+cat("\n \033[35mQuerying network. Please be patient.\033[39m\n \n")
 
 ##Execute queries
 results <- foreach(i = 1:max_combinations, .packages = c("bnlearn", "dplyr")) %dopar% {
@@ -209,7 +210,7 @@ write.csv(post_hoc, "post_hoc_analysis.csv", row.names = FALSE)
 
 ##Stop cluster
 parallel::stopCluster(cl)
-print("Stats calculated.")
+cat("\n \033[032mStatistics calculated.\033[39m \n")
 
 ## Prepare data for the network visualization
 net <- igraph.from.graphNEL(as.graphNEL(avg_boot))
